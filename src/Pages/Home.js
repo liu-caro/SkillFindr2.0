@@ -41,7 +41,7 @@ class Home extends Component {
                             </Col>
                             <Col xs={6}>
                                 <div class="float-right">
-                                    <button class="feedback" routerLink="/profile">
+                                    <button class="button" routerLink="/profile">
                                         <Octicon icon={Person} size='small' ariaLabel='Person' />
                                     </button>
                                 </div>
@@ -89,8 +89,8 @@ class Home extends Component {
 
                     </ListGroup>
 
-                    <div class="mybutton">
-                        <button class="feedback">
+                    <div class="bottomright">
+                        <button class="button">
                             <Octicon icon={Plus} size='small' ariaLabel='Plus' />
                         </button>
                     </div>
