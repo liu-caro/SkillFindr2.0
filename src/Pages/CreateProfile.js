@@ -11,12 +11,12 @@ import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
 
-class SignUp extends Component {
+class CreateProfile extends Component {
     render() {
-        
+
         return (
 
-                
+
             <html>
                 <head>
                     <link
@@ -33,7 +33,7 @@ class SignUp extends Component {
                                 <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
                             </button>
                             <div class="title">
-                                <h1>Sign Up</h1>
+                                <h1>Create Profile</h1>
                             </div>
                         </Row>
                     </Container>
@@ -46,6 +46,7 @@ class SignUp extends Component {
                                         <InputGroup.Text id="inputGroup-sizing-default">Name</InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <FormControl
+                                        placeholder="Jane Doe"
                                         aria-label="Default"
                                         aria-describedby="inputGroup-sizing-default"
                                     />
@@ -55,9 +56,10 @@ class SignUp extends Component {
                             <ListGroup.Item>
                                 <InputGroup size="sm">
                                     <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Email</InputGroup.Text>
+                                        <InputGroup.Text id="inputGroup-sizing-default">Bio</InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <FormControl
+                                        placeholder="I am a programmer sometimes."
                                         aria-label="Default"
                                         aria-describedby="inputGroup-sizing-default"
                                     />
@@ -67,39 +69,28 @@ class SignUp extends Component {
                             <ListGroup.Item>
                                 <InputGroup size="sm">
                                     <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Password</InputGroup.Text>
+                                        <InputGroup.Text id="inputGroup-sizing-default">Skills</InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <FormControl
+                                        placeholder="HTML, CSS, JS, Photoshop, ect."
                                         aria-label="Default"
                                         aria-describedby="inputGroup-sizing-default"
                                     />
                                 </InputGroup>
                             </ListGroup.Item>
-
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Confirm Password</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
-                            </ListGroup>
-                        </div>
+                        </ListGroup>
+                    </div>
 
                     <Container fluid="true">
                         <Row>
                             <Col xs={6}>
-                                <button block="true" class="btn btn-primary block" routerLink="/sign-up">
+                                <button block="true" class="btn btn-primary block" routerLink="/login">
                                     Cancel
                                 </button>
                             </Col>
                             <Col xs={6}>
-                                <button type="button" class="btn btn-primary block" routerLink="/profile">
-                                    Next
+                                <button type="button" class="btn btn-primary block" routerLink="/create-profile">
+                                    Create Profile
                                 </button>
                             </Col>
                         </Row>
@@ -111,4 +102,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default CreateProfile;

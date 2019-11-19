@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Event from './Pages/Event';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
+import CreateProfile from './Pages/CreateProfile';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route path="/login" component={Login} exact={true} /> 
             <Route path="/event" component={Event} exact={true} />
             <Route path="/sign-up" component={SignUp} exact={true} />
+            <Route path="/create-profile" component={CreateProfile} exact={true} />
           </Switch>
         </div>
       </Router>
