@@ -1,4 +1,9 @@
-.app-title {
-    top: 150px;
-    
+.title-padding {
+    padding-top: 150px;
+    padding-bottom: 25px;
+}
+
+.input-padding {
+    padding-left: 25px;
+    padding-right: 25px;
 }

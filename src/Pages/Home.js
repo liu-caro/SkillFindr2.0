@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Stylesheets/Home.css'
-import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -41,7 +40,7 @@ class Home extends Component {
                             </Col>
                             <Col xs={6}>
                                 <div class="float-right">
-                                    <button class="button" routerLink="/profile">
+                                    <button class="btn btn-primary" routerLink="/profile">
                                         <Octicon icon={Person} size='small' ariaLabel='Person' />
                                     </button>
                                 </div>
@@ -90,7 +89,7 @@ class Home extends Component {
                     </ListGroup>
 
                     <div class="bottomright">
-                        <button class="button">
+                        <button class="btn btn-primary">
                             <Octicon icon={Plus} size='small' ariaLabel='Plus' />
                         </button>
                     </div>

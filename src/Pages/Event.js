@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../Stylesheets/Home.css'
-import TabContainer from 'react-bootstrap/TabContainer'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import Container from 'react-bootstrap/Container'
@@ -30,7 +28,7 @@ class Event extends Component {
                     <Container fluid="true">
                         <Row>
                             <Col >
-                                <button class="button" routerLink="/home">
+                                <button class="btn btn-primary" routerLink="/home">
                                     <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
                                 </button>
                             </Col>
@@ -59,12 +57,12 @@ class Event extends Component {
                         </Row>
                         <Row>
                             <Col></Col>
-                            <button class="button" routerLink="/register">Register</button>
+                            <button class="btn btn-primary" routerLink="/register">Register</button>
                             <Col></Col>
                         </Row>
                         <Row>
                             <Col></Col>
-                            <button class="button" routerLink="/propose-idea">Create Team</button>
+                            <button class="btn btn-primary" routerLink="/propose-idea">Create Team</button>
                             <Col></Col>
                         </Row>
                         <Row>

@@ -1,0 +1,17 @@
+.title {
+    padding-left: 15px;
+}
+
+.input {
+    padding-top: 30px;
+}
+
+.border {
+    border-bottom:3px solid;
+}
+
+.block {
+    display: block;
+    width: 100%;
+    padding: 14px 28px;
+}
