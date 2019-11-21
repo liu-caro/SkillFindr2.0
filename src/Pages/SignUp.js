@@ -10,7 +10,6 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
-
 class SignUp extends Component {
     render() {
         
@@ -51,7 +50,6 @@ class SignUp extends Component {
                                     />
                                 </InputGroup>
                             </ListGroup.Item>
-
                             <ListGroup.Item>
                                 <InputGroup size="sm">
                                     <InputGroup.Prepend>

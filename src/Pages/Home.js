@@ -51,7 +51,7 @@ class Home extends Component {
                         </Row>
                     </Container>
                     <ListGroup>
-                        <ListGroup.Item action routerLink="/event">
+                        <ListGroup.Item action href="/event">
                             <Row>
                                 <Col xs={1}>
                                     <Image src={HackBeanpot} thumbnail="true" alt="hackbeanpot" />
