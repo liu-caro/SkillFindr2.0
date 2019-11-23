@@ -3,13 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Stylesheets/Login.css'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 
 
 class Login extends Component {
     render() {
-    
+
         return (
             <html>
                 <head>
@@ -22,42 +24,36 @@ class Login extends Component {
                 </head>
                 <body>
                     <div align="center" class="title-padding">
-                        <h2>Skill Findr</h2>
+                        <h2>SkillFindr</h2>
                     </div>
 
-                    <div class="input-padding">
-                        <InputGroup className="mb-3">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text id="inputGroup-sizing-default">Email</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl
-                                aria-label="Default"
-                                aria-describedby="inputGroup-sizing-default"
-                            />
-                        </InputGroup>
-                    </div>
+                    <Form>
+                        <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label column="false">Email address</Form.Label>
+                            <Form.Control type="email"/>
+                        </Form.Group>
+                        </Form.Row>
 
-                    <div class="input-padding">
-                        <InputGroup className="mb-3">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text id="inputGroup-sizing-default">Password</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl
-                                aria-label="Default"
-                                aria-describedby="inputGroup-sizing-default"
-                            />
-                        </InputGroup>
-                    </div>
-                
-                    <div align="center">
-                        <p>
-                            New? Sign up <Link to="/signup"> here</Link>!
-                        </p>
-                    
-                        <button class="btn btn-primary" routerLink="/home">
-                            Log in
-                        </button>
-                    </div>
+                        <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label column="true">Password</Form.Label>
+                            <Form.Control type="password" />
+                        </Form.Group>
+                        </Form.Row>
+
+                        <div align="center">
+                            <p>
+                                New? Sign up <Link to="/signup"> here</Link>!
+                            </p>
+                        </div>
+
+                        <Form.Row className="justify-content-center">
+                            <Button class="align-content-center" variant="primary" type="submit" routerLink="/home">
+                                Log In
+                            </Button>
+                        </Form.Row>
+                    </Form>
                 </body>
             </html>
         );
