@@ -49,7 +49,12 @@ class Login extends Component {
                         </div>
 
                         <Form.Row className="justify-content-center">
-                            <Button class="align-content-center" variant="primary" type="submit" routerLink="/home">
+                            {/*// TODO: this will be how to make the button submit the form, implement later*/}
+                            {/*<Button class="align-content-center" variant="primary" type="submit" href="/home">*/}
+                            {/*    Log In*/}
+                            {/*</Button>*/}
+
+                            <Button class="align-content-center" variant="primary" href="/home">
                                 Log In
                             </Button>
                         </Form.Row>
