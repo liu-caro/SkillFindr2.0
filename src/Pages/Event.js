@@ -15,16 +15,7 @@ class Event extends Component {
 
         return (
 
-            <html>
-                <head>
-                    <link
-                        rel="stylesheet"
-                        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-                        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-                        crossorigin="anonymous"
-                    />
-                </head>
-                <body>
+            <React.Fragment>
                     <Container fluid="true">
                         <Row>
                             <Col >
@@ -45,38 +36,37 @@ class Event extends Component {
                                     </Tab>
                                 </Tabs>
                             </Col>
-                            <Col></Col>
+                            <Col/>
                         </Row>
                         <Row>
                             <h1>HackBeanpot</h1>
                         </Row>
                         <Row>
-                            <Col></Col>
-                                <img src={HackBeanpot} alt="HackBeanpot"></img>
-                            <Col></Col>
+                            <Col/>
+                                <img src={HackBeanpot} alt="HackBeanpot"/>
+                            <Col/>
                         </Row>
                         <Row>
-                            <Col></Col>
+                            <Col/>
                             <button class="btn btn-primary" routerLink="/register">Register</button>
-                            <Col></Col>
+                            <Col/>
                         </Row>
                         <Row>
-                            <Col></Col>
+                            <Col/>
                             <button class="btn btn-primary" routerLink="/propose-idea">Create Team</button>
-                            <Col></Col>
+                            <Col/>
                         </Row>
                         <Row>
-                            <Col></Col>
+                            <Col/>
                                 <p>
                                     An independently-run Boston hackathon for curious students,
                                     hackers, makers, and beginners.
                                 </p>
-                            <Col></Col>
+                            <Col/>
                         </Row>
                     </Container>
-                   
-                </body>
-            </html>
+
+            </React.Fragment>
         );
     }
 }
