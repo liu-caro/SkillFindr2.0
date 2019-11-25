@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
@@ -26,9 +27,9 @@ class CreateEvent extends Component {
                 <body>
                     <Container fluid="true">
                         <Row>
-                            <button class="btn btn-primary" routerLink="/home">
+                            <Button class="btn btn-primary" href="/home">
                                 <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                            </button>
+                            </Button>
                             <div class="title">
                                 <h1>Create Event</h1>
                             </div>
@@ -89,14 +90,14 @@ class CreateEvent extends Component {
                     <Container fluid="true">
                         <Row>
                             <Col xs={6}>
-                                <button block="true" class="btn btn-primary block" routerLink="/sign-up">
+                                <Button block="true" class="btn btn-primary block" href="/home">
                                     Cancel
-                                </button>
+                                </Button>
                             </Col>
                             <Col xs={6}>
-                                <button type="button" class="btn btn-primary block" routerLink="/profile">
+                                <Button block="true" class="btn btn-primary block" href="/event">
                                     Next
-                                </button>
+                                </Button>
                             </Col>
                         </Row>
 

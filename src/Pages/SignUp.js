@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
@@ -18,9 +19,9 @@ class SignUp extends Component {
 
                     <Container fluid="true">
                         <Row>
-                            <button class="btn btn-primary" routerLink="/home">
+                        <Button variant="primary" class="btn btn-primary" href="/login">
                                 <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                            </button>
+                            </Button>
                             <div class="title">
                                 <h1>Sign Up</h1>
                             </div>
@@ -81,14 +82,14 @@ class SignUp extends Component {
                     <Container fluid="true">
                         <Row>
                             <Col xs={6}>
-                                <button block="true" class="btn btn-primary block" routerLink="/sign-up">
+                                <Button block="true" class="btn btn-primary block" href="/login">
                                     Cancel
-                                </button>
+                                </Button>
                             </Col>
                             <Col xs={6}>
-                                <button type="button" class="btn btn-primary block" routerLink="/profile">
-                                    Next
-                                </button>
+                            <Button block="true" class="btn btn-primary block" href="/create-profile">
+                                   Next
+                                </Button>
                             </Col>
                         </Row>
 

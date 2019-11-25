@@ -30,9 +30,9 @@ class Home extends Component {
                     </Col>
                     <Col xs={6}>
                         <div class="float-right">
-                            <button class="btn btn-primary" routerLink="/profile">
+                            <Button class="btn btn-primary" href="/profile">
                                 <Octicon icon={Person} size='small' ariaLabel='Person' />
-                            </button>
+                            </Button>
                         </div>
                     </Col>
                 </Row>

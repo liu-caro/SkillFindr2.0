@@ -5,6 +5,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import HackBeanpot from '../Images/hackBeanPot.png';
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
@@ -19,9 +20,9 @@ class Event extends Component {
                     <Container fluid="true">
                         <Row>
                             <Col >
-                                <button class="btn btn-primary" routerLink="/home">
+                            <Button class="btn btn-primary" href="/home">
                                     <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                                </button>
+                            </Button>
                             </Col>
                             <Col >
                                 <Tabs defaultActiveKey="event">
@@ -48,12 +49,12 @@ class Event extends Component {
                         </Row>
                         <Row>
                             <Col/>
-                            <button class="btn btn-primary" routerLink="/register">Register</button>
+                            <Button class="btn btn-primary" href="/register">Register</Button>
                             <Col/>
                         </Row>
                         <Row>
                             <Col/>
-                            <button class="btn btn-primary" routerLink="/propose-idea">Create Team</button>
+                            <Button class="btn btn-primary" href="/propose-idea">Create Team</Button>
                             <Col/>
                         </Row>
                         <Row>
