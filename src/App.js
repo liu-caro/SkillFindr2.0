@@ -7,6 +7,7 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import CreateProfile from './Pages/CreateProfile';
 import RegisterEvent from './Pages/RegisterEvent';
+import ProposeIdea from './Pages/ProposeIdea';
 
 
 class App extends Component {
@@ -19,10 +20,11 @@ class App extends Component {
             <Route path="/login" component={Login} exact={true} /> 
             <Route path="/event" component={Event} exact={true} />
             <Route path="/create-event" component={CreateEvent} exact={true} />
-            <Route path="/register-event" component={RegisterEvent} exact={true} />
+            <Route path="/register" component={RegisterEvent} exact={true} />
             <Route path="/signup" component={SignUp} exact={true} />
             <Route path="/home" component={Home} exact={true} />
             <Route path="/create-profile" component={CreateProfile} exact={true} />
+            <Route path="/propose-idea" component={ProposeIdea} exact={true} />
           </Switch>
         </div>
       </Router>
