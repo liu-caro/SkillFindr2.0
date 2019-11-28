@@ -10,19 +10,27 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
-class SignUp extends Component {
+class CreateEvent extends Component {
     render() {
         
         return (
-            <React.Fragment>
-
+            <html>
+                <head>
+                    <link
+                        rel="stylesheet"
+                        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                        crossorigin="anonymous"
+                    />
+                </head>
+                <body>
                     <Container fluid="true">
                         <Row>
                             <button class="btn btn-primary" routerLink="/home">
                                 <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
                             </button>
                             <div class="title">
-                                <h1>Sign Up</h1>
+                                <h1>Create Event</h1>
                             </div>
                         </Row>
                     </Container>
@@ -93,9 +101,10 @@ class SignUp extends Component {
                         </Row>
 
                     </Container>
-                </React.Fragment>
+                </body>
+            </html>
         );
     }
 }
 
-export default SignUp;
+export default CreateEvent;
