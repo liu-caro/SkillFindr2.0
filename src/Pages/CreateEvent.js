@@ -9,101 +9,76 @@ import FormControl from 'react-bootstrap/FormControl'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
+import firebase from '../firebase';
+import Form from "react-bootstrap/Form";
+import {Link} from "react-router-dom";
 
 
 class CreateEvent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            eventName: ''
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const itemsRef = firebase.database().ref('items');
+        const item = {
+            eventName: this.state.eventName,
+        };
+        itemsRef.push(item);
+        this.setState({
+            eventName: ''
+        });
+    }
+
     render() {
         
         return (
-            <html>
-                <head>
-                    <link
-                        rel="stylesheet"
-                        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-                        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-                        crossorigin="anonymous"
-                    />
-                </head>
-                <body>
-                    <Container fluid="true">
-                        <Row>
-                            <Button class="btn btn-primary" href="/home">
-                                <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                            </Button>
-                            <div class="title">
-                                <h1>Create Event</h1>
-                            </div>
-                        </Row>
-                    </Container>
+            <React.Fragment>
+                <div align="center" class="title-padding">
+                    <h2>SkillFindr</h2>
+                </div>
 
-                    <div class="input">
-                        <ListGroup>
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Name</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Email</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label column="false">Email address</Form.Label>
+                            <Form.Control type="email" onChange={this.handleChange} value={this.state.username}/>
+                        </Form.Group>
+                    </Form.Row>
 
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Password</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
+                    <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label column="true">Password</Form.Label>
+                            <Form.Control type="password" />
+                        </Form.Group>
+                    </Form.Row>
 
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Confirm Password</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
-                            </ListGroup>
-                        </div>
+                    <div align="center">
+                        <p>
+                            New? Sign up <Link to="/signup"> here</Link>!
+                        </p>
+                    </div>
 
-                    <Container fluid="true">
-                        <Row>
-                            <Col xs={6}>
-                                <Button block="true" class="btn btn-primary block" href="/home">
-                                    Cancel
-                                </Button>
-                            </Col>
-                            <Col xs={6}>
-                                <Button block="true" class="btn btn-primary block" href="/event">
-                                    Next
-                                </Button>
-                            </Col>
-                        </Row>
+                    <Form.Row className="justify-content-center">
+                        <Button class="align-content-center" variant="primary" type="submit" href="/home">
+                            Log In
+                        </Button>
 
-                    </Container>
-                </body>
-            </html>
+                    </Form.Row>
+                </Form>
+            </React.Fragment>
         );
     }
 }
