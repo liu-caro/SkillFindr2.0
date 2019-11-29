@@ -4,9 +4,7 @@ import '../Stylesheets/SignUp.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
@@ -27,66 +25,45 @@ class CreateProfile extends Component {
                                 <h1>Create Profile</h1>
                             </div>
                         </Row>
-                    </Container>
+                </Container>
+                
+                <Form>
+                    <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicName">
+                            <Form.Label column="false">Name</Form.Label>
+                            <Form.Control type="email" />
+                        </Form.Group>
+                    </Form.Row>
 
-                    <div class="input">
-                        <ListGroup>
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Name</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        placeholder="Jane Doe"
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
+                    <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicBio">
+                            <Form.Label column="false">Bio</Form.Label>
+                            <Form.Control type="email" />
+                        </Form.Group>
+                    </Form.Row>
 
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Bio</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        placeholder="I am a programmer sometimes."
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
+                    <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicSkills">
+                            <Form.Label column="true">Skills</Form.Label>
+                            <Form.Control type="password" />
+                        </Form.Group>
+                    </Form.Row>
 
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Skills</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        placeholder="HTML, CSS, JS, Photoshop, ect."
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
-                        </ListGroup>
-                    </div>
+                    <Form.Row className="justify-content-center">
 
-                    <Container fluid="true">
-                        <Row>
-                            <Col xs={6}>
-                                <Button block="true" class="btn btn-primary block" href="/login">
-                                    Cancel
-                                </Button>
-                            </Col>
-                            <Col xs={6}>
-                                <Button block="true" class="btn btn-primary block" href="/profile">
-                                    Create Profile
-                                </Button>
-                            </Col>
-                        </Row>
+                        <Button href="/login">
+                            Cancel
+                        </Button>
 
-                    </Container>
+                        <div class="divider" />
+
+                        <Button href="/create-profile">
+                            Next
+                        </Button>
+
+                    </Form.Row>
+                </Form>
+
             </React.Fragment>
         );
     }

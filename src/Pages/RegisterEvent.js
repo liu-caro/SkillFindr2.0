@@ -40,7 +40,6 @@ class RegisterEvent extends Component {
                                     type="radio"
                                     name="react-tips"
                                     value="option1"
-                                    checked={true}
                                     className="form-check-input"
                                 />
                                 No, I am working alone
@@ -82,9 +81,8 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
+                                    name="another"
                                     value="option1"
-                                    checked={true}
                                     className="form-check-input"
                                 />
                                 Facebook
@@ -96,7 +94,7 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
+                                    name="another"
                                     value="option2"
                                     className="form-check-input"
                                 />
@@ -109,7 +107,7 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
+                                    name="another"
                                     value="option3"
                                     className="form-check-input"
                                 />
@@ -123,8 +121,8 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
-                                    value="option3"
+                                    name="another"
+                                    value="option4"
                                     className="form-check-input"
                                 />
                                 Other
