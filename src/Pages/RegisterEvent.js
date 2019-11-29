@@ -11,6 +11,7 @@ import FormControl from 'react-bootstrap/FormControl'
 import ListGroup from 'react-bootstrap/ListGroup'
 import HackBeanpot from '../Images/hackBeanPot.png';
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
+import {Link} from "react-router-dom";
 
 
 
@@ -154,9 +155,16 @@ class RegisterEvent extends Component {
                             </Button>
                         </Col>
                         <Col xs={6}>
-                            <Button block="true" class="btn btn-primary block" href="/event" onclick="change()">
+                            <Link to={{
+                                pathname: "/event",
+                                state: {
+                                    isRegistered: true
+                                }
+                            }}>
+                            <Button block="true" class="btn btn-primary block" onclick="change()">
                                 Register
                             </Button>
+                            </Link>
                         </Col>
                     </Row>
 

@@ -12,7 +12,14 @@ import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
 class Event extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {isRegistered: false};
+    // }
+
     render() {
+
+        const data = this.props.location.state;
 
         return (
 
@@ -49,7 +56,12 @@ class Event extends Component {
                         </Row>
                         <Row>
                             <Col/>
-                            <Button class="btn btn-primary" href="/register">Register</Button>
+                            {console.log(this.props.location.state)}
+
+                            { data ?
+                                (<Button class="btn btn-primary" href="/register" disabled> Registered</Button>) :
+                                (<Button class="btn btn-primary" href="/register"> Register </Button>)}
+
                             <Col/>
                         </Row>
                         <Row>
