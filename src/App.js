@@ -7,6 +7,9 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import CreateProfile from './Pages/CreateProfile';
 import ConfirmRegistartion from './Pages/ConfirmRegistartion';
+import Ideas from './Pages/Ideas';
+import Attendees from './Pages/Attendees';
+import Profile from './Pages/Profile';
 
 class App extends Component {
   render() {
@@ -22,6 +25,9 @@ class App extends Component {
             <Route path="/home" component={Home} exact={true} />
             <Route path="/create-profile" component={CreateProfile} exact={true} />
             <Route path="/confirm-registartion" component={ConfirmRegistartion} exact={true} />
+            <Route path="/ideas" component={Ideas} exact={true} />
+            <Route path="/attendees" component={Attendees} exact={true} />
+            <Route path="/profile" component={Profile} exact={true} />
           </Switch>
         </div>
       </Router>
