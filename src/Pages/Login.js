@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Stylesheets/Login.css'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
@@ -14,7 +12,7 @@ class Login extends Component {
 
         return (
             <React.Fragment>
-                    <div align="center" class="title-padding">
+                    <div align="center" className="title-padding">
                         <h2>SkillFindr</h2>
                     </div>
 
@@ -45,7 +43,7 @@ class Login extends Component {
                             {/*    Log In*/}
                             {/*</Button>*/}
 
-                            <Button class="align-content-center" variant="primary" href="/home">
+                            <Button className="align-content-center" variant="primary" href="/home">
                                 Log In
                             </Button>
                         </Form.Row>

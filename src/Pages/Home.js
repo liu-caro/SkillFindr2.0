@@ -29,10 +29,10 @@ class Home extends Component {
                         <h2>Upcoming Events</h2>
                     </Col>
                     <Col xs={6}>
-                        <div class="float-right">
-                            <button class="btn btn-primary" routerLink="/profile">
+                        <div className="float-right">
+                            <Button className="btn btn-primary" href="/profile">
                                 <Octicon icon={Person} size='small' ariaLabel='Person' />
-                            </button>
+                            </Button>
                         </div>
                     </Col>
                 </Row>
@@ -78,7 +78,7 @@ class Home extends Component {
 
             </ListGroup>
 
-            <div class="bottomright">
+            <div className="bottomright">
                 {/*<button class="btn btn-primary">*/}
                 {/*    <Octicon icon={Plus} size='small' ariaLabel='Plus' />*/}
                 {/*</button>*/}

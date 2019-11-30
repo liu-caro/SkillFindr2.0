@@ -10,6 +10,9 @@ import ConfirmRegistartion from './Pages/ConfirmRegistartion';
 import Ideas from './Pages/Ideas';
 import Attendees from './Pages/Attendees';
 import Profile from './Pages/Profile';
+import RegisterEvent from './Pages/RegisterEvent';
+import ProposeIdea from './Pages/ProposeIdea';
+
 
 class App extends Component {
   render() {
@@ -21,6 +24,7 @@ class App extends Component {
             <Route path="/login" component={Login} exact={true} /> 
             <Route path="/event" component={Event} exact={true} />
             <Route path="/create-event" component={CreateEvent} exact={true} />
+            <Route path="/register" component={RegisterEvent} exact={true} />
             <Route path="/signup" component={SignUp} exact={true} />
             <Route path="/home" component={Home} exact={true} />
             <Route path="/create-profile" component={CreateProfile} exact={true} />
@@ -28,6 +32,7 @@ class App extends Component {
             <Route path="/ideas" component={Ideas} exact={true} />
             <Route path="/attendees" component={Attendees} exact={true} />
             <Route path="/profile" component={Profile} exact={true} />
+            <Route path="/propose-idea" component={ProposeIdea} exact={true} />
           </Switch>
         </div>
       </Router>

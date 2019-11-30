@@ -3,106 +3,103 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Stylesheets/SignUp.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
+import firebase from '../firebase';
+import {Link} from "react-router-dom";
 
 
 class CreateEvent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            eventName: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillMount(){
+        // console.log(firebase.database().ref('events').orderByKey().limitToLast(100));
+    }
+
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+        // console.log(firebase.database().ref('events'));
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const itemsRef = firebase.database().ref('events' );
+        const item = {
+            eventName: this.state.eventName,
+        };
+        itemsRef.push(item);
+        this.setState({
+            eventName: ''
+        });
+        this.props.history.push("/event")
+    }
+
     render() {
-        
+
         return (
-            <html>
-                <head>
-                    <link
-                        rel="stylesheet"
-                        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-                        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-                        crossorigin="anonymous"
-                    />
-                </head>
-                <body>
-                    <Container fluid="true">
-                        <Row>
-                            <button class="btn btn-primary" routerLink="/home">
-                                <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                            </button>
-                            <div class="title">
-                                <h1>Create Event</h1>
-                            </div>
-                        </Row>
-                    </Container>
+            <React.Fragment>
 
-                    <div class="input">
-                        <ListGroup>
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Name</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Email</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
 
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Password</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
-
-                            <ListGroup.Item>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroup-sizing-default">Confirm Password</InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                    <FormControl
-                                        aria-label="Default"
-                                        aria-describedby="inputGroup-sizing-default"
-                                    />
-                                </InputGroup>
-                            </ListGroup.Item>
-                            </ListGroup>
+                <Container fluid="true">
+                    <Row>
+                        <Button variant="primary" className="btn btn-primary" href="/home">
+                            <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
+                        </Button>
+                        <div className="title">
+                            <h1>Create Event</h1>
                         </div>
+                    </Row>
+                </Container>
 
-                    <Container fluid="true">
-                        <Row>
-                            <Col xs={6}>
-                                <button block="true" class="btn btn-primary block" routerLink="/sign-up">
-                                    Cancel
-                                </button>
-                            </Col>
-                            <Col xs={6}>
-                                <button type="button" class="btn btn-primary block" routerLink="/profile">
-                                    Next
-                                </button>
-                            </Col>
-                        </Row>
+                {/*<Form onSubmit={this.handleSubmit}>*/}
+                <Form>
+                    <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicName">
+                            <Form.Label column="false">Name</Form.Label>
+                            <Form.Control name="eventName" type="text" onChange={this.handleChange} value={this.state.eventName}/>
+                        </Form.Group>
+                    </Form.Row>
 
-                    </Container>
-                </body>
-            </html>
+                    <Form.Row className="justify-content-center">
+
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label column="true">Password</Form.Label>
+                            <Form.Control type="password" />
+                        </Form.Group>
+                    </Form.Row>
+
+
+
+                    <Form.Row className="justify-content-center">
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label column="true">Confirm Password</Form.Label>
+                            <Form.Control type="password" />
+                        </Form.Group>
+                    </Form.Row>
+
+                    <Form.Row className="justify-content-center">
+                        <Button className="align-content-center" variant="primary" type="submit" onClick={this.handleSubmit}>
+                            Create Event
+                        </Button>
+                    </Form.Row>
+
+
+
+
+
+
+                </Form>
+            </React.Fragment>
         );
     }
 }

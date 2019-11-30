@@ -5,13 +5,21 @@ import Tabs from 'react-bootstrap/Tabs'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import HackBeanpot from '../Images/hackBeanPot.png';
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
 
 class Event extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {isRegistered: false};
+    // }
+
     render() {
+
+        const data = this.props.location.state;
 
         return (
 
@@ -19,9 +27,9 @@ class Event extends Component {
                     <Container fluid="true">
                         <Row>
                             <Col >
-                                <button class="btn btn-primary" routerLink="/home">
+                            <Button className="btn btn-primary" href="/home">
                                     <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                                </button>
+                            </Button>
                             </Col>
                             <Col >
                                 <Tabs defaultActiveKey="event">
@@ -46,14 +54,22 @@ class Event extends Component {
                                 <img src={HackBeanpot} alt="HackBeanpot"/>
                             <Col/>
                         </Row>
-                        <Row>
+                        <Row className="mb-2">
                             <Col/>
-                            <button class="btn btn-primary" routerLink="/register">Register</button>
+                            {/*{console.log(this.props.location.state)}*/}
+
+                            { data ?
+                                (<Button variant="light" href="/register" disabled> Registered</Button>) :
+                                (<Button className="btn btn-primary" href="/register"> Register </Button>)}
+
                             <Col/>
                         </Row>
-                        <Row>
+                        <Row className="mb-2">
                             <Col/>
-                            <button class="btn btn-primary" routerLink="/propose-idea">Create Team</button>
+                            { data ?
+                                (<Button className="btn btn-primary" href="/propose-idea">Create Team</Button>) : (<div/>)
+                                }
+
                             <Col/>
                         </Row>
                         <Row>
