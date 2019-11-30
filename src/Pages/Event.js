@@ -54,19 +54,22 @@ class Event extends Component {
                                 <img src={HackBeanpot} alt="HackBeanpot"/>
                             <Col/>
                         </Row>
-                        <Row>
+                        <Row className="mb-2">
                             <Col/>
                             {/*{console.log(this.props.location.state)}*/}
 
                             { data ?
-                                (<Button className="btn btn-primary" href="/register" disabled> Registered</Button>) :
+                                (<Button variant="light" href="/register" disabled> Registered</Button>) :
                                 (<Button className="btn btn-primary" href="/register"> Register </Button>)}
 
                             <Col/>
                         </Row>
-                        <Row>
+                        <Row className="mb-2">
                             <Col/>
-                            <Button className="btn btn-primary" href="/propose-idea">Create Team</Button>
+                            { data ?
+                                (<Button className="btn btn-primary" href="/propose-idea">Create Team</Button>) : (<div/>)
+                                }
+
                             <Col/>
                         </Row>
                         <Row>

@@ -101,7 +101,7 @@ class ProposeIdea extends Component {
                 <Container fluid="true">
                     <Row>
                         <Col xs={6}>
-                            <Button block="true" className="btn btn-primary block" href="/event">
+                            <Button block="true" className="btn btn-secondary block" href="/event">
                                 Cancel
                                 </Button>
                         </Col>
