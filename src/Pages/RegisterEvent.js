@@ -23,10 +23,10 @@ class RegisterEvent extends Component {
             <React.Fragment>
                 <Container fluid="true">
                     <Row>
-                        <Button class="btn btn-primary" href="/home">
+                        <Button className="btn btn-primary" href="/home">
                             <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
                         </Button>
-                        <div class="title">
+                        <div className="title">
                             <h1>Register Event</h1>
                         </div>
                     </Row>
@@ -41,7 +41,6 @@ class RegisterEvent extends Component {
                                     type="radio"
                                     name="react-tips"
                                     value="option1"
-                                    checked={true}
                                     className="form-check-input"
                                 />
                                 No, I am working alone
@@ -83,9 +82,8 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
+                                    name="another"
                                     value="option1"
-                                    checked={true}
                                     className="form-check-input"
                                 />
                                 Facebook
@@ -97,7 +95,7 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
+                                    name="another"
                                     value="option2"
                                     className="form-check-input"
                                 />
@@ -110,7 +108,7 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
+                                    name="another"
                                     value="option3"
                                     className="form-check-input"
                                 />
@@ -124,8 +122,8 @@ class RegisterEvent extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="react-tips"
-                                    value="option3"
+                                    name="another"
+                                    value="option4"
                                     className="form-check-input"
                                 />
                                 Other
@@ -150,7 +148,7 @@ class RegisterEvent extends Component {
                 <Container fluid="true">
                     <Row>
                         <Col xs={6}>
-                            <Button block="true" class="btn btn-primary block" href="/home">
+                            <Button block="true" className="btn btn-primary block" href="/home">
                                 Cancel
                             </Button>
                         </Col>
@@ -161,7 +159,7 @@ class RegisterEvent extends Component {
                                     isRegistered: true
                                 }
                             }}>
-                            <Button block="true" class="btn btn-primary block" onclick="change()">
+                            <Button block="true" className="btn btn-primary block" onclick="change()">
                                 Register
                             </Button>
                             </Link>

@@ -27,7 +27,7 @@ class Event extends Component {
                     <Container fluid="true">
                         <Row>
                             <Col >
-                            <Button class="btn btn-primary" href="/home">
+                            <Button className="btn btn-primary" href="/home">
                                     <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
                             </Button>
                             </Col>
@@ -56,17 +56,17 @@ class Event extends Component {
                         </Row>
                         <Row>
                             <Col/>
-                            {console.log(this.props.location.state)}
+                            {/*{console.log(this.props.location.state)}*/}
 
                             { data ?
-                                (<Button class="btn btn-primary" href="/register" disabled> Registered</Button>) :
-                                (<Button class="btn btn-primary" href="/register"> Register </Button>)}
+                                (<Button className="btn btn-primary" href="/register" disabled> Registered</Button>) :
+                                (<Button className="btn btn-primary" href="/register"> Register </Button>)}
 
                             <Col/>
                         </Row>
                         <Row>
                             <Col/>
-                            <Button class="btn btn-primary" href="/propose-idea">Create Team</Button>
+                            <Button className="btn btn-primary" href="/propose-idea">Create Team</Button>
                             <Col/>
                         </Row>
                         <Row>

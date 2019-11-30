@@ -21,16 +21,16 @@ class ProposeIdea extends Component {
             <React.Fragment>
                 <Container fluid="true">
                     <Row>
-                        <Button class="btn btn-primary" href="/login">
+                        <Button className="btn btn-primary" href="/login">
                             <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
                         </Button>
-                        <div class="title">
+                        <div className="title">
                             <h1>Propose an Idea</h1>
                         </div>
                     </Row>
                 </Container>
 
-                <div class="input">
+                <div className="input">
                     <ListGroup>
                         <ListGroup.Item>
                             <InputGroup size="sm">
@@ -101,12 +101,12 @@ class ProposeIdea extends Component {
                 <Container fluid="true">
                     <Row>
                         <Col xs={6}>
-                            <Button block="true" class="btn btn-primary block" href="/event">
+                            <Button block="true" className="btn btn-primary block" href="/event">
                                 Cancel
                                 </Button>
                         </Col>
                         <Col xs={6}>
-                            <Button block="true" class="btn btn-primary block" href="/your-idea">
+                            <Button block="true" className="btn btn-primary block" href="/your-idea">
                                 Create Profile
                                 </Button>
                         </Col>

@@ -12,7 +12,7 @@ class Login extends Component {
 
         return (
             <React.Fragment>
-                    <div align="center" class="title-padding">
+                    <div align="center" className="title-padding">
                         <h2>SkillFindr</h2>
                     </div>
 
@@ -43,7 +43,7 @@ class Login extends Component {
                             {/*    Log In*/}
                             {/*</Button>*/}
 
-                            <Button class="align-content-center" variant="primary" href="/home">
+                            <Button className="align-content-center" variant="primary" href="/home">
                                 Log In
                             </Button>
                         </Form.Row>
