@@ -51,7 +51,7 @@ class CreateEvent extends Component {
             <React.Fragment>
                 <Container fluid="true">
                     <Row className="titlePadding">
-                        <Button variant="outline-primary" type="button" href="/home">
+                        <Button style={{ paddingTop: '10px' }} variant="outline-primary" type="button" href="/home">
                             <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                         </Button>
 

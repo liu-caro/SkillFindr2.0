@@ -23,7 +23,7 @@ class RegisterEvent extends Component {
             <React.Fragment>
                 <Container fluid="true">
                     <Row className="titlePadding">
-                        <Button variant="outline-primary" type="button" href="/home">
+                        <Button variant="outline-primary" style={{ paddingTop:'10px' }} type="button" href="/home">
                             <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                         </Button>
 

@@ -16,9 +16,9 @@ class SignUp extends Component {
             <React.Fragment>
 
                 <Container fluid="true">
-                    <Row>
-                        <Button variant="primary" className="btn btn-primary" href="/login">
-                            <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
+                    <Row className="titlePadding">
+                        <Button style={{ paddingTop: '10px' }} variant="outline-primary" type="button" href="/">
+                            <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                         </Button>
                         <div className="title">
                             <h1>Sign Up</h1>

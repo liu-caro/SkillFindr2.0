@@ -15,15 +15,15 @@ class CreateProfile extends Component {
         return (
 
             <React.Fragment>
-                    <Container fluid="true">
-                        <Row>
-                            <Button className="btn btn-primary" href="/login">
-                                <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                            </Button>
-                            <div className="title">
-                                <h1>Create Profile</h1>
-                            </div>
-                        </Row>
+                <Container fluid="true">
+                    <Row className="titlePadding">
+                        <Button style={{ paddingTop: '10px' }} variant="outline-primary" type="button" href="/signup">
+                            <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+                        </Button>
+                        <div className="title">
+                            <h1>Create Profile</h1>
+                        </div>
+                    </Row>
                 </Container>
                 
                 <Form>
@@ -56,7 +56,7 @@ class CreateProfile extends Component {
 
                         <div className="divider" />
 
-                        <Button href="/create-profile">
+                        <Button href="/profile">
                             Next
                         </Button>
 

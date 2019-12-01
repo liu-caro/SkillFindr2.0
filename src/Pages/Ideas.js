@@ -55,7 +55,7 @@ class Ideas extends Component {
                     <ListGroup.Item action href="/idea-page">
                         <Row>
                             <Col xs={10}>
-                                <h1>Salem</h1>
+                                <h1 className="title">Salem</h1>
                             </Col>
                             
                             <Col xs={2}>
@@ -64,7 +64,7 @@ class Ideas extends Component {
                         </Row>
 
                         <Row>
-                            <h2>
+                            <h2 className="subtitle">
                                 Hidden role card game
                             </h2>
                         </Row>
@@ -73,7 +73,7 @@ class Ideas extends Component {
                     <ListGroup.Item action onClick={alertClicked}>
                         <Row>
                             <Col xs={10}>
-                                <h1>Loot</h1>
+                                <h1 className="title">Loot</h1>
                             </Col>
     
                             <Col xs={2}>
@@ -82,7 +82,7 @@ class Ideas extends Component {
                         </Row>
 
                         <Row>
-                            <h2>
+                            <h2 className="subtitle">
                                Generate terrain and find treasure
                             </h2>
                         </Row>
@@ -92,7 +92,7 @@ class Ideas extends Component {
                     <ListGroup.Item action onClick={alertClicked}>
                         <Row>
                             <Col xs={10}>
-                                <h1>No More Geeses</h1>
+                                <h1 className="title">No More Geeses</h1>
                             </Col>
 
                             <Col xs={2}>
@@ -101,7 +101,7 @@ class Ideas extends Component {
                         </Row>
 
                         <Row>
-                            <h2>
+                            <h2 className="subtitle">
                                 Please, help us with the geese
                             </h2>
                         </Row>
