@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import HackBeanpot from '../Images/hackBeanPot.png';
-import Octicon, { ArrowLeft } from '@primer/octicons-react'
+import Octicon, { ArrowLeft, Person } from '@primer/octicons-react'
 
 
 
@@ -31,6 +31,7 @@ class Event extends Component {
                                 <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                             </Button>
                         </Col>
+
                         <Col>
                             <Nav className="justify-content-center" fill="true" variant="pills" activeKey="event">
                                 <Nav.Item>
@@ -40,11 +41,18 @@ class Event extends Component {
                                     <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="attendees">Attendees</Nav.Link>
+                                    <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Col>
-                        <Col/>
+
+                        <Col>
+                            <div className="float-right">
+                                <Button type="button" href="/profile">
+                                    <Octicon icon={Person} size='medium' ariaLabel='Person' />
+                                </Button>
+                            </div>
+                        </Col>
                     </Row>
                     <Row>
                         <h1>HackBeanpot</h1>
@@ -59,8 +67,8 @@ class Event extends Component {
                         {/*{console.log(this.props.location.state)}*/}
 
                         { data ?
-                            (<Button variant="light" href="/register" disabled> Registered</Button>) :
-                            (<Button className="btn btn-primary" href="/register"> Register </Button>)}
+                            (<Button variant="light" size="lg" href="/register" disabled> Registered</Button>) :
+                            (<Button className="btn btn-primary" size="lg" href="/register"> Register </Button>)}
 
                         <Col/>
                     </Row>

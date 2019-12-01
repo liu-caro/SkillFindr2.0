@@ -104,7 +104,7 @@ class RegisterEvent extends Component {
                 <Container fluid="true">
                     <Row>
                         <Col xs={6}>
-                            <Button block="true"  href="/event">
+                            <Button block="true" variant="secondary" href="/event">
                                 Cancel
                             </Button>
                         </Col>

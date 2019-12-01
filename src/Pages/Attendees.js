@@ -22,11 +22,6 @@ import Tabs from 'react-bootstrap/Tabs';
 
 class Attendees extends Component {
     render() {
-        function alertClicked() {
-            alert('Pretend this works ;)');
-        }
-
-
         return (
             <React.Fragment>
 
@@ -36,6 +31,7 @@ class Attendees extends Component {
                             <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                         </Button>
                     </Col>
+
                     <Col >
                         <Nav className="justify-content-center" fill="true" variant="pills" activeKey="attendees">
                             <Nav.Item>
@@ -49,8 +45,16 @@ class Attendees extends Component {
                             </Nav.Item>
                         </Nav>
                     </Col>
-                    <Col />
+                    
+                    <Col>
+                        <div className="float-right">
+                            <Button type="button" href="/profile">
+                                <Octicon icon={Person} size='medium' ariaLabel='Person' />
+                            </Button>
+                        </div>
+                    </Col>
                 </Row>
+                
                 <Row>
                     <SearchBar />
                 </Row>
@@ -103,14 +107,6 @@ class Attendees extends Component {
                     </ListGroup.Item>
 
                 </ListGroup>
-
-                <div className="bottomright">
-                    <Button href="create-event">
-                        <Octicon icon={Plus} size='medium' ariaLabel='Plus' />
-                    </Button>
-                </div>
-
-
             </React.Fragment>
         );
     }

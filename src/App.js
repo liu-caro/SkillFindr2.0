@@ -13,6 +13,8 @@ import Profile from './Pages/Profile';
 import RegisterEvent from './Pages/RegisterEvent';
 import ProposeIdea from './Pages/ProposeIdea';
 import IndvIdea from './Pages/IndvIdea';
+import EditProfile from './Pages/EditProfile';
+import CreateIdea from './Pages/CreateIdea';
 
 
 class App extends Component {
@@ -35,6 +37,8 @@ class App extends Component {
             <Route path="/profile" component={Profile} exact={true} />
             <Route path="/propose-idea" component={ProposeIdea} exact={true} />
             <Route path="/indv-idea" component={IndvIdea} exact={true} />
+            <Route path="/edit-profile" component={EditProfile} exact={true} />
+            <Route path="/create-idea" component={CreateIdea} exact={true} />
           </Switch>
         </div>
       </Router>

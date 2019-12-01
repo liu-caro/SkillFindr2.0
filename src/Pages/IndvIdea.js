@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Tab from 'react-bootstrap/Tab'
-import Tabs from 'react-bootstrap/Tabs'
+import Nav from 'react-bootstrap/Nav'
 import '../Stylesheets/IndvIdea.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
 import HackBeanpot from '../Images/hackBeanPot.png';
-import Octicon, { ArrowLeft } from '@primer/octicons-react'
+import Octicon, { ArrowLeft, Person } from '@primer/octicons-react'
 
 
 
@@ -25,25 +25,37 @@ class IndvIdea extends Component {
         return (
 
             <React.Fragment>
-                
-                <Row>
-                    <Col >
-                        <button class="btn btn-primary" routerLink="/home">
-                            <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                        </button>
-                    </Col>
-                    <Col >
-                        <Tabs defaultActiveKey="ideas">
-                            <Tab eventKey="event" title="Event">
-                            </Tab>
-                            <Tab eventKey="ideas" title="Ideas">
-                            </Tab>
-                            <Tab eventKey="attendees" title="Attendees">
-                            </Tab>
-                        </Tabs>
-                    </Col>
-                    <Col/>
-                </Row>
+                <Container fluid="true">
+                    <Row className="titlePadding">
+                        <Col>
+                            <Button variant="outline-primary" type="button" href="/home">
+                                <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+                            </Button>
+                        </Col>
+
+                        <Col>
+                            <Nav className="justify-content-center" fill="true" variant="pills" activeKey="ideas">
+                                <Nav.Item>
+                                    <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+                        </Col>
+
+                        <Col>
+                            <div className="float-right">
+                                <Button type="button" href="/profile">
+                                    <Octicon icon={Person} size='medium' ariaLabel='Person' />
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
 
                 <Row>
                     <h1>Salem</h1>
@@ -53,7 +65,7 @@ class IndvIdea extends Component {
                     <Col align="center">
               
                         <p>
-                          A improv card game based around witches in Salem.dsfhjsdhfjhsdjfhjsdhfksd f skjfd kshdfkjshd fkhdsfkjh dsfkjh ksdjfh
+                          A improv card game based around witches in Salem.
                         </p>
                     </Col>
                  </Row>
@@ -64,39 +76,36 @@ class IndvIdea extends Component {
 
 
                  <Row>
-                     <Col xs = "6">
+                     <Col xs={6}>
                          <div class = "skill-list">
-                            Back-End
+                            <Badge variant="secondary">Back-End</Badge>
                          </div>
                      </Col>
-                     <Col xs = "6">
-                         <div class = "skill-list">
-                            Designer
-                         </div>
-                     </Col>
-
-                     <Col xs = "6">
-                         <div class = "skill-list">
-                            2D Art
-                         </div>
-                     </Col>
-                     <Col xs = "6">
-                         <div class = "skill-list">
-                            Tech Art
+                     <Col xs={6}>
+                         <div class = "skill-list">             
+                            <Badge variant="secondary">Designer</Badge>
                          </div>
                      </Col>
 
+                     <Col xs={6}>
+                         <div class = "skill-list">
+                            <Badge variant="secondary">2D Art</Badge>
+                         </div>
+                     </Col>
+                     <Col xs={6}>
+                        <div class="skill-list">
+                            <Badge variant="secondary">Tech Art</Badge>
+                         </div>
+                     </Col>
+                </Row>
 
-                 </Row>
-
-                 <Button class="justify-content-center" variant="primary" href="/event">
-                                Join Team
-                            </Button>
-
-
-
-
-
+                <div className="divider" />
+                
+                <Row className="justify-content-center">
+                    <Button className="align-content-center" size="lg" variant="primary" href="/event">
+                        Join Team
+                        </Button>
+                </Row>
 
             </React.Fragment>
         );

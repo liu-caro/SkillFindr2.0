@@ -8,7 +8,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Nav from 'react-bootstrap/Nav'
 import Badge from 'react-bootstrap/Badge'
 import SearchBar from '../Pages/SearchBar'
-import Octicon, { Plus, ArrowLeft } from '@primer/octicons-react';
+import Octicon, { Plus, ArrowLeft, Person } from '@primer/octicons-react';
 import Button from 'react-bootstrap/Button';
 
 
@@ -43,7 +43,13 @@ class Ideas extends Component {
                             </Nav>
                         </Col> 
 
-                        <Col />
+                        <Col>
+                            <div className="float-right">
+                                <Button type="button" href="/profile">
+                                    <Octicon icon={Person} size='medium' ariaLabel='Person' />
+                                </Button>
+                            </div>
+                        </Col>
                     </Row>
 
                     <Row>
@@ -52,7 +58,7 @@ class Ideas extends Component {
                 </Container>
 
                 <ListGroup>
-                    <ListGroup.Item action href="/idea-page">
+                    <ListGroup.Item action href="/indv-idea">
                         <Row>
                             <Col xs={10}>
                                 <h1 className="title">Salem</h1>
@@ -109,7 +115,7 @@ class Ideas extends Component {
                 </ListGroup>
 
                 <div className="bottomright">
-                    <Button href="create-event">
+                    <Button href="create-idea">
                         <Octicon icon={Plus} size='medium' ariaLabel='Plus' />
                     </Button>
                 </div>
