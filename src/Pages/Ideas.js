@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../Stylesheets/Home.css'
 import '../Stylesheets/ideas.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Image from 'react-bootstrap/Image'
+import Nav from 'react-bootstrap/Nav'
+import Badge from 'react-bootstrap/Badge'
 import SearchBar from '../Pages/SearchBar'
-import HackBeanpot from '../Images/hbp-logo.png';
-import CommunityGameJam from '../Images/cgj-logo.png';
-import HackNYU from '../Images/hnyu-logo.jpg';
-import Octicon, { Person, Plus, ArrowLeft } from '@primer/octicons-react';
+import Octicon, { Plus, ArrowLeft } from '@primer/octicons-react';
 import Button from 'react-bootstrap/Button';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
 
 
 
@@ -24,89 +19,104 @@ class Ideas extends Component {
             alert('Pretend this works ;)');
         }
 
-
         return (
             <React.Fragment>
+                <Container fluid="true">
+                    <Row className="titlePadding">
+                        <Col>
+                            <Button variant="outline-primary" type="button" href="/home">
+                                <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+                            </Button>
+                        </Col>
 
-                <Row>
-                    <Col >
-                        <button class="btn btn-primary" routerLink="/home">
-                            <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                        </button>
-                    </Col>
-                    <Col >
-                        <Tabs defaultActiveKey="ideas">
-                            <Tab eventKey="event" title="Event">
+                        <Col>
+                            <Nav className="justify-content-center" fill="true" variant="pills" activeKey="ideas">
+                                <Nav.Item>
+                                    <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+                        </Col> 
 
-                            </Tab>
-                            <Tab eventKey="ideas" title="Ideas">
+                        <Col />
+                    </Row>
 
-                            </Tab>
-                            <Tab eventKey="attendees" title="Attendees">
+                    <Row>
+                        <SearchBar />
+                    </Row>
+                </Container>
 
-                            </Tab>
-                        </Tabs>
-                    </Col>
-                    <Col />
-                </Row>
-                <Row>
-                    <SearchBar />
-                </Row>
                 <ListGroup>
-                    <ListGroup.Item action href="/event">
+                    <ListGroup.Item action href="/idea-page">
                         <Row>
-                            <Col xs={6}>
-                            <h1>Salem</h1>    
+                            <Col xs={10}>
+                                <h1>Salem</h1>
                             </Col>
-                            <Col xs={3}>
-                                <p class="pideas">Hidden role card game </p>
-                            </Col>
-                            <Col xs={3}>
-                                <p class="pideas">Members: 2/4</p>
+                            
+                            <Col xs={2}>
+                                <Badge className="float-right m-2" pill="true" variant="primary">Members: 2/4</Badge>
                             </Col>
                         </Row>
+
+                        <Row>
+                            <h2>
+                                Hidden role card game
+                            </h2>
+                        </Row>
                     </ListGroup.Item>
+                    
                     <ListGroup.Item action onClick={alertClicked}>
-                    <Row>
-                            <Col xs={6}>
-                            <h1>Loot</h1>    
+                        <Row>
+                            <Col xs={10}>
+                                <h1>Loot</h1>
                             </Col>
-                            <Col xs={3}>
-                                <p class="pideas">Generate terrain and find treasure</p>
+    
+                            <Col xs={2}>
+                                <Badge className="float-right m-2" pill="true" variant="primary">Members: 1/4</Badge>
                             </Col>
-                            <Col xs={3}>
-                                <p class="pideas">Members: 1/4</p>
-                            </Col>
+                        </Row>
+
+                        <Row>
+                            <h2>
+                               Generate terrain and find treasure
+                            </h2>
                         </Row>
                     </ListGroup.Item>
 
+
                     <ListGroup.Item action onClick={alertClicked}>
-                    <Row>
-                            <Col xs={6}>
-                            <h1>No More Geeses</h1>    
+                        <Row>
+                            <Col xs={10}>
+                                <h1>No More Geeses</h1>
                             </Col>
-                            <Col xs={3}>
-                                <p class="pideas">Please, help us with the geese</p>
-                            </Col>
-                            <Col xs={3}>
-                                <p class="pideas">Members: 3/4</p>
+
+                            <Col xs={2}>
+                                <Badge className="float-right m-2" pill="true" variant="primary">Members: 3/4</Badge>
                             </Col>
                         </Row>
-                    </ListGroup.Item>
 
+                        <Row>
+                            <h2>
+                                Please, help us with the geese
+                            </h2>
+                        </Row>
+                    </ListGroup.Item>
                 </ListGroup>
 
-                <div class="bottomright">
-                    {/*<button class="btn btn-primary">*/}
-                    {/*    <Octicon icon={Plus} size='small' ariaLabel='Plus' />*/}
-                    {/*</button>*/}
-                    <Button className="btn btn-primary" href="create-event">
-                        <Octicon icon={Plus} size='small' ariaLabel='Plus' />
+                <div className="bottomright">
+                    <Button href="create-event">
+                        <Octicon icon={Plus} size='medium' ariaLabel='Plus' />
                     </Button>
                 </div>
 
-
             </React.Fragment>
+
+
         );
     }
 }

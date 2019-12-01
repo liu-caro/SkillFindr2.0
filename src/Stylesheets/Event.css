@@ -1,0 +1,16 @@
+.divider{
+    width:15px;
+    height:auto;
+    display:inline-block;
+}
+
+.sidePadding {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.titlePadding {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}

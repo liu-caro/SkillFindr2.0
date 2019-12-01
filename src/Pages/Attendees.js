@@ -5,6 +5,7 @@ import '../Stylesheets/ideas.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Nav from 'react-bootstrap/Nav'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Image from 'react-bootstrap/Image'
 import SearchBar from '../Pages/SearchBar'
@@ -29,24 +30,24 @@ class Attendees extends Component {
         return (
             <React.Fragment>
 
-                <Row>
+                <Row className="titlePadding">
                     <Col >
-                        <button class="btn btn-primary" routerLink="/home">
-                            <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
-                        </button>
+                        <Button variant="outline-primary" type="button" href="/home">
+                            <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+                        </Button>
                     </Col>
                     <Col >
-                        <Tabs defaultActiveKey="attendees">
-                            <Tab eventKey="event" title="Event">
-
-                            </Tab>
-                            <Tab eventKey="ideas" title="Ideas">
-
-                            </Tab>
-                            <Tab eventKey="attendees" title="Attendees">
-
-                            </Tab>
-                        </Tabs>
+                        <Nav className="justify-content-center" fill="true" variant="pills" activeKey="attendees">
+                            <Nav.Item>
+                                <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
                     </Col>
                     <Col />
                 </Row>
@@ -103,12 +104,9 @@ class Attendees extends Component {
 
                 </ListGroup>
 
-                <div class="bottomright">
-                    {/*<button class="btn btn-primary">*/}
-                    {/*    <Octicon icon={Plus} size='small' ariaLabel='Plus' />*/}
-                    {/*</button>*/}
-                    <Button className="btn btn-primary" href="create-event">
-                        <Octicon icon={Plus} size='small' ariaLabel='Plus' />
+                <div className="bottomright">
+                    <Button href="create-event">
+                        <Octicon icon={Plus} size='medium' ariaLabel='Plus' />
                     </Button>
                 </div>
 

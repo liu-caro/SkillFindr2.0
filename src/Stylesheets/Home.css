@@ -15,3 +15,7 @@ h1
   bottom: 10px;
   right: 10px;
 }
+
+.titlePadding {
+    padding: 10px;
+}

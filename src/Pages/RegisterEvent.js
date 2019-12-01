@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Form from 'react-bootstrap/Form'
 import HackBeanpot from '../Images/hackBeanPot.png';
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 import {Link} from "react-router-dom";
@@ -22,133 +22,89 @@ class RegisterEvent extends Component {
 
             <React.Fragment>
                 <Container fluid="true">
-                    <Row>
-                        <Button className="btn btn-primary" href="/home">
-                            <Octicon icon={ArrowLeft} size='small' ariaLabel='arrow' />
+                    <Row className="titlePadding">
+                        <Button variant="outline-primary" type="button" href="/home">
+                            <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                         </Button>
+
                         <div className="title">
                             <h1>Register Event</h1>
                         </div>
                     </Row>
 
-                    <Row style={{ paddingTop: '25px', paddingLeft: '25px' }}>
-                        <p>Do you have a team?</p>
-                    </Row>
-                    <Row style={{ paddingLeft: '25px' }}>
-                        <div className="form-check">
-                            <label>
-                                <input
+                    <Form>
+                        <Form.Group as={Col} controlId="formBasicName">
+                            <Form.Label as="legend">
+                                Do you have a team?
+                            </Form.Label>
+                            <Col sm={10}>
+                                <Form.Check
                                     type="radio"
-                                    name="react-tips"
-                                    value="option1"
-                                    className="form-check-input"
+                                    label="No, I am working alone"
+                                    name="haveATeam"
+                                    id="formHorizontalRadios1"
                                 />
-                                No, I am working alone
-                            </label>
-                        </div>
-                    </Row>
-                    <Row style={{ paddingLeft: '25px' }}>
-                        <div className="form-check">
-                            <label>
-                                <input
+                                <Form.Check
                                     type="radio"
-                                    name="react-tips"
-                                    value="option2"
-                                    className="form-check-input"
+                                    label="No, I am looking for a team"
+                                    name="haveATeam"
+                                    id="formHorizontalRadios2"
                                 />
-                                No, I am looking for a team
-                            </label>
-                        </div>
-                    </Row>
-                    <Row style={{ paddingLeft: '25px' }}>
-                        <div className="form-check">
-                            <label>
-                                <input
+                                <Form.Check
                                     type="radio"
-                                    name="react-tips"
-                                    value="option3"
-                                    className="form-check-input"
+                                    label="Yes, I have a team"
+                                    name="haveATeam"
+                                    id="formHorizontalRadios3"
                                 />
-                                Yes, I have a team
-                            </label>
-                        </div>
-                    </Row>
+                            </Col>
+                        </Form.Group>
+                        
+                        <Form.Group as={Col} controlId="formBasicName">
+                            <Form.Label as="legend">
+                                How did you hear about this event?
+                            </Form.Label>
+                            <Col sm={10}>
+                                <Form.Check
+                                    type="radio"
+                                    label="Facebook"
+                                    name="hearAboutEvent"
+                                    id="formHorizontalRadios4"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    label="Twitter"
+                                    name="hearAboutEvent"
+                                    id="formHorizontalRadios5"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    label="Event Website"
+                                    name="hearAboutEvent"
+                                    id="formHorizontalRadios6"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    label="Other"
+                                    name="hearAboutEvent"
+                                    id="formHorizontalRadios7"
+                                />
+                            </Col>
+                        </Form.Group>
 
-                    <Row style={{ paddingTop: '25px', paddingLeft: '25px' }}>
-                        <p>How did you hear about this event></p>
-                    </Row>
-                    <Row style={{ paddingLeft: '25px' }}>
-                        <div className="form-check">
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="another"
-                                    value="option1"
-                                    className="form-check-input"
-                                />
-                                Facebook
-                            </label>
-                        </div>
-                    </Row>
-                    <Row style={{ paddingLeft: '25px' }}>
-                        <div className="form-check">
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="another"
-                                    value="option2"
-                                    className="form-check-input"
-                                />
-                                Twitter
-                            </label>
-                        </div>
-                    </Row>
-                    <Row style={{ paddingLeft: '25px' }}>
-                        <div className="form-check">
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="another"
-                                    value="option3"
-                                    className="form-check-input"
-                                />
-                                Event Website
-                            </label>
-                        </div>
-                    </Row>
-                    
-                    <Row style={{ paddingLeft: '25px' }}>
-                        <div className="form-check">
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="another"
-                                    value="option4"
-                                    className="form-check-input"
-                                />
-                                Other
-                            </label>
-                        </div>
-                    </Row>
+                        <Form.Group as={Col} controlId="formBasicDescription">
+                            <Form.Label>
+                                If you selected other, please write in where you heard about the event here:
+                            </Form.Label>
+                            <Form.Control type="description" />
+                        </Form.Group>
+                    </Form>
 
-                    <Row style={{ paddingLeft: '25px', paddingRight: '25px', paddingBottom: '25px' }}>
-                        If you selected other, please write in where you heard about the event here:
-                         <InputGroup size="sm">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text id="inputGroup-sizing-default">Enter Input</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl
-                                aria-label="Default"
-                                aria-describedby="inputGroup-sizing-default"
-                            />
-                        </InputGroup>
-                    </Row>
                 </Container>
 
                 <Container fluid="true">
                     <Row>
                         <Col xs={6}>
-                            <Button block="true" className="btn btn-primary block" href="/home">
+                            <Button block="true"  href="/event">
                                 Cancel
                             </Button>
                         </Col>
@@ -159,7 +115,7 @@ class RegisterEvent extends Component {
                                     isRegistered: true
                                 }
                             }}>
-                            <Button block="true" className="btn btn-primary block" onclick="change()">
+                            <Button block="true">
                                 Register
                             </Button>
                             </Link>
