@@ -107,7 +107,7 @@ class ProposeIdea extends Component {
                         </Col>
                         <Col xs={6}>
                             <Button block="true" className="btn btn-primary block" href="/your-idea">
-                                Create Profile
+                                Submit Idea
                                 </Button>
                         </Col>
                     </Row>

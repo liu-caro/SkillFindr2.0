@@ -12,6 +12,7 @@ import Attendees from './Pages/Attendees';
 import Profile from './Pages/Profile';
 import RegisterEvent from './Pages/RegisterEvent';
 import ProposeIdea from './Pages/ProposeIdea';
+import IndvIdea from './Pages/IndvIdea';
 
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path="/attendees" component={Attendees} exact={true} />
             <Route path="/profile" component={Profile} exact={true} />
             <Route path="/propose-idea" component={ProposeIdea} exact={true} />
+            <Route path="/indv-idea" component={IndvIdea} exact={true} />
           </Switch>
         </div>
       </Router>

@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
-import firebase from '../firebase';
+import firebase from '../Firebase';
 import {Link} from "react-router-dom";
 
 
