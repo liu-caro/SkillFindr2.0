@@ -11,6 +11,7 @@ import SearchBar from '../Pages/SearchBar'
 import Octicon, { Plus, ArrowLeft, Person } from '@primer/octicons-react';
 import Button from 'react-bootstrap/Button';
 import Firebase from "../firebase";
+import {Link} from "react-router-dom";
 
 
 
@@ -77,64 +78,18 @@ class Ideas extends Component {
                 </Container>
 
                 <ListGroup>
-                    <ListGroup.Item action href="/idea-details">
-                        <Row>
-                            <Col xs={10}>
-                                <h1 className="title">Salem</h1>
-                            </Col>
-                            
-                            <Col xs={2}>
-                                <Badge className="float-right m-2" pill="true" variant="primary">Members: 2/4</Badge>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <h2 className="subtitle">
-                                Hidden role card game
-                            </h2>
-                        </Row>
-                    </ListGroup.Item>
-                    
-                    <ListGroup.Item action onClick={alertClicked}>
-                        <Row>
-                            <Col xs={10}>
-                                <h1 className="title">Loot</h1>
-                            </Col>
-    
-                            <Col xs={2}>
-                                <Badge className="float-right m-2" pill="true" variant="primary">Members: 1/4</Badge>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <h2 className="subtitle">
-                               Generate terrain and find treasure
-                            </h2>
-                        </Row>
-                    </ListGroup.Item>
-
-
-                    <ListGroup.Item action onClick={alertClicked}>
-                        <Row>
-                            <Col xs={10}>
-                                <h1 className="title">No More Geeses</h1>
-                            </Col>
-
-                            <Col xs={2}>
-                                <Badge className="float-right m-2" pill="true" variant="primary">Members: 3/4</Badge>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <h2 className="subtitle">
-                                Please, help us with the geese
-                            </h2>
-                        </Row>
-                    </ListGroup.Item>
-
-                    { /* Render the list of messages */
-                        this.state.ideas.map( idea =>
-                            <ListGroup.Item key={idea.id} action onClick={alertClicked}>
+                    {this.state.ideas.map( idea =>
+                            <Link key={idea.id} style={{ textDecoration: 'none', color: 'black' }} to={{
+                                pathname: '/idea-details',
+                                state: {
+                                    ideaName: idea.text.ideaName,
+                                    descrip: idea.text.descrip,
+                                    teamSize: idea.text.teamSize,
+                                    skills: idea.text.skills.split(', '),
+                                    role: idea.text.role
+                                }
+                            }}>
+                            <ListGroup.Item >
                                 <Row>
                                     <Col xs={10}>
                                         <h1 className="title">{idea.text.ideaName}</h1>
@@ -142,7 +97,9 @@ class Ideas extends Component {
                                     </Col>
 
                                     <Col xs={2}>
-                                        <Badge className="float-right m-2" pill="true" variant="primary">Members: 1/{idea.text.teamSize}</Badge>
+                                        <Badge className="float-right m-2" pill="true" variant="primary">
+                                            Members: {idea.text.members}/{idea.text.teamSize}
+                                        </Badge>
                                     </Col>
                                 </Row>
 
@@ -153,6 +110,7 @@ class Ideas extends Component {
                                     </h2>
                                 </Row>
                             </ListGroup.Item>
+                            </Link>
 
                         )
                     }

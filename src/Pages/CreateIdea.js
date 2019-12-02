@@ -18,7 +18,7 @@ class CreateIdea extends Component {
         this.state = {
             ideaName: '',
             descrip: '',
-            teamSize: '',
+            teamSize: 1,
             skills: '',
             role: ''
         };
@@ -41,6 +41,7 @@ class CreateIdea extends Component {
             teamSize: this.state.teamSize,
             skills: this.state.skills,
             role: this.state.role,
+            members: 1
         };
         ideasRef.push(idea);
         this.setState({
@@ -50,7 +51,16 @@ class CreateIdea extends Component {
             skills: '',
             role: ''
         });
-        this.props.history.push("/indv-idea")
+        this.props.history.push({
+            pathname: '/idea-details',
+            state: {
+                ideaName: this.state.ideaName,
+                descrip: this.state.descrip,
+                teamSize: this.state.teamSize,
+                skills: this.state.skills.split(', '),
+                role: this.state.role
+            }
+        });
     }
 
     render() {
@@ -89,7 +99,7 @@ class CreateIdea extends Component {
 
                     <Form.Group as={Col} controlId="formBasicSkills">
                         <Form.Label>Skills Needed</Form.Label>
-                        <Form.Control name="skills" type="text" as="textarea" placeholder="Front-End, " onChange={this.handleChange} value={this.state.skills} />
+                        <Form.Control name="skills" type="text" as="textarea" placeholder="Front-End, Full Stack, Artist" onChange={this.handleChange} value={this.state.skills} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicRole">
