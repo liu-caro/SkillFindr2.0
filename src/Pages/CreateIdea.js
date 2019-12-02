@@ -13,38 +13,45 @@ import { Link } from "react-router-dom";
 
 
 class CreateIdea extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         eventName: ''
-    //     };
-    //     this.handleChange = this.handleChange.bind(this);
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            ideaName: '',
+            descrip: '',
+            teamSize: '',
+            skills: '',
+            role: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-    // componentWillMount() {
-    //     // console.log(Firebase.database().ref('events').orderByKey().limitToLast(100));
-    // }
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
 
-    // handleChange(e) {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     });
-    //     // console.log(Firebase.database().ref('events'));
-    // }
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const itemsRef = Firebase.database().ref('events');
-    //     const item = {
-    //         eventName: this.state.eventName,
-    //     };
-    //     itemsRef.push(item);
-    //     this.setState({
-    //         eventName: ''
-    //     });
-    //     this.props.history.push("/event")
-    // }
+    handleSubmit(e) {
+        e.preventDefault();
+        const itemsRef = Firebase.database().ref('ideas');
+        const item = {
+            ideaName: this.state.ideaName,
+            descrip: this.state.descrip,
+            teamSize: this.state.teamSize,
+            skills: this.state.skills,
+            role: this.state.role,
+        };
+        itemsRef.push(item);
+        this.setState({
+            ideaName: '',
+            descrip: '',
+            teamSize: '',
+            skills: '',
+            role: ''
+        });
+        this.props.history.push("/indv-idea")
+    }
 
     render() {
 
@@ -64,32 +71,30 @@ class CreateIdea extends Component {
 
                 <div className="divider" />
 
-                {/*<Form onSubmit={this.handleSubmit}>*/}
                 <Form>
                     <Form.Group as={Col} controlId="formBasicName">
-                        <Form.Label>Name of Project</Form.Label>
-                        <Form.Control type="text"/>
-                        {/* <Form.Control name="eventName" type="text" onChange={this.handleChange} value={this.state.eventName} /> */}
+                        <Form.Label>Name of Project Idea</Form.Label>
+                         <Form.Control name="ideaName" type="text" onChange={this.handleChange} value={this.state.ideaName} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicDescription">
-                        <Form.Label>Decription</Form.Label>
-                        <Form.Control as="textarea" type="text" />
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control name="descrip" as="textarea" type="text" onChange={this.handleChange} value={this.state.descrip} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicTeam">
                         <Form.Label>Number of Team Members</Form.Label>
-                        <Form.Control type="number" />
+                        <Form.Control name="teamSize" type="number" onChange={this.handleChange} value={this.state.teamSize} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicSkills">
                         <Form.Label>Skills Needed</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control name="skills" type="text" onChange={this.handleChange} value={this.state.skills} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicRole">
                         <Form.Label>Your Role</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control name="role" type="text" onChange={this.handleChange} value={this.state.role} />
                     </Form.Group>
 
                     <Form.Row className="sidePadding">
@@ -100,12 +105,9 @@ class CreateIdea extends Component {
                         </Col>
 
                         <Col xs={6}>
-                            <Button variant="primary" type="submit" size="lg" block="true" href="/indv-idea">
+                            <Button variant="primary" type="submit" size="lg" block="true" onClick={this.handleSubmit}>
                                 Submit
                             </Button>
-                            {/* <Button variant="primary" type="submit" size="lg" block="true" onClick={this.handleSubmit}>
-                                Submit
-                            </Button> */}
                         </Col>
                     </Form.Row>
                 </Form>
