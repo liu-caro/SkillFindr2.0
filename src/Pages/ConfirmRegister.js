@@ -16,7 +16,7 @@ import Octicon, { ArrowLeft } from '@primer/octicons-react'
 
 
 
-class ConfirmRegistartion extends Component {
+class ConfirmRegister extends Component {
     render() {
 
         return (
@@ -116,4 +116,4 @@ class ConfirmRegistartion extends Component {
     }
 }
 
-export default ConfirmRegistartion;
+export default ConfirmRegister;

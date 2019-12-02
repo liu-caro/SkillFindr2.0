@@ -12,7 +12,7 @@ import Octicon, { ArrowLeft, Person } from '@primer/octicons-react'
 
 
 
-class IndvIdea extends Component {
+class IdeaDetails extends Component {
     // constructor(props) {
     //     super(props);
     //     this.state = {isRegistered: false};
@@ -112,4 +112,4 @@ class IndvIdea extends Component {
     }
 }
 
-export default IndvIdea;
+export default IdeaDetails;

@@ -77,7 +77,7 @@ class Ideas extends Component {
                 </Container>
 
                 <ListGroup>
-                    <ListGroup.Item action href="/indv-idea">
+                    <ListGroup.Item action href="/idea-details">
                         <Row>
                             <Col xs={10}>
                                 <h1 className="title">Salem</h1>
