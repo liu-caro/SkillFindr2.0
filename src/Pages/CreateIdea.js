@@ -74,12 +74,12 @@ class CreateIdea extends Component {
                 <Form>
                     <Form.Group as={Col} controlId="formBasicName">
                         <Form.Label>Name of Project Idea</Form.Label>
-                         <Form.Control name="ideaName" type="text" onChange={this.handleChange} value={this.state.ideaName} />
+                         <Form.Control name="ideaName" placeholder="Coolest Project Ever" type="text" onChange={this.handleChange} value={this.state.ideaName} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control name="descrip" as="textarea" type="text" onChange={this.handleChange} value={this.state.descrip} />
+                        <Form.Control name="descrip" as="textarea" placeholder="A web app to find hackathon team members" type="text" onChange={this.handleChange} value={this.state.descrip} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicTeam">
@@ -89,12 +89,12 @@ class CreateIdea extends Component {
 
                     <Form.Group as={Col} controlId="formBasicSkills">
                         <Form.Label>Skills Needed</Form.Label>
-                        <Form.Control name="skills" type="text" onChange={this.handleChange} value={this.state.skills} />
+                        <Form.Control name="skills" type="text" as="textarea" placeholder="Front-End, " onChange={this.handleChange} value={this.state.skills} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicRole">
                         <Form.Label>Your Role</Form.Label>
-                        <Form.Control name="role" type="text" onChange={this.handleChange} value={this.state.role} />
+                        <Form.Control name="role" type="text" placeholder="Front-End, Back-End, UI/UX Designer"onChange={this.handleChange} value={this.state.role} />
                     </Form.Group>
 
                     <Form.Row className="sidePadding">

@@ -28,7 +28,7 @@ class IdeaDetails extends Component {
                 <Container fluid="true">
                     <Row className="titlePadding">
                         <Col>
-                            <Button variant="outline-primary" type="button" href="/home">
+                            <Button variant="outline-primary" type="button" href="/ideas">
                                 <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                             </Button>
                         </Col>

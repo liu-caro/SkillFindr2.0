@@ -75,7 +75,7 @@ class Event extends Component {
                     <Row className="mb-2">
                         <Col/>
                         { data ?
-                            (<Button href="/propose-idea">Create Team</Button>) : (<div/>)
+                            (<Button href="/create-idea">Create Team</Button>) : (<div/>)
                             }
 
                         <Col/>
