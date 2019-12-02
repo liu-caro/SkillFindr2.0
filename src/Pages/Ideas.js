@@ -10,10 +10,29 @@ import Badge from 'react-bootstrap/Badge'
 import SearchBar from '../Pages/SearchBar'
 import Octicon, { Plus, ArrowLeft, Person } from '@primer/octicons-react';
 import Button from 'react-bootstrap/Button';
+import Firebase from "../firebase";
 
 
 
 class Ideas extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            ideas: []
+        };
+    }
+
+    componentWillMount(){
+        /* Create reference to messages in Firebase Database */
+        let ideasRef = Firebase.database().ref('ideas').orderByKey().limitToLast(100);
+        ideasRef.on('child_added', snapshot => {
+            /* Update React state when message is added at Firebase Database */
+            let idea = { text: snapshot.val(), id: snapshot.key };
+            this.setState({ ideas: [idea].concat(this.state.ideas) });
+        })
+    }
+
     render() {
         function alertClicked() {
             alert('Pretend this works ;)');
@@ -112,6 +131,32 @@ class Ideas extends Component {
                             </h2>
                         </Row>
                     </ListGroup.Item>
+
+                    { /* Render the list of messages */
+                        this.state.ideas.map( idea =>
+                            <ListGroup.Item key={idea.id} action onClick={alertClicked}>
+                                <Row>
+                                    <Col xs={10}>
+                                        <h1 className="title">{idea.text.ideaName}</h1>
+
+                                    </Col>
+
+                                    <Col xs={2}>
+                                        <Badge className="float-right m-2" pill="true" variant="primary">Members: 1/{idea.text.teamSize}</Badge>
+                                    </Col>
+                                </Row>
+
+                                <Row>
+                                    <h2 className="subtitle">
+                                        {idea.text.descrip}
+
+                                    </h2>
+                                </Row>
+                            </ListGroup.Item>
+
+                        )
+                    }
+
                 </ListGroup>
 
                 <div className="bottomright">

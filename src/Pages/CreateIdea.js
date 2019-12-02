@@ -34,15 +34,15 @@ class CreateIdea extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const itemsRef = Firebase.database().ref('ideas');
-        const item = {
+        const ideasRef = Firebase.database().ref('ideas');
+        const idea = {
             ideaName: this.state.ideaName,
             descrip: this.state.descrip,
             teamSize: this.state.teamSize,
             skills: this.state.skills,
             role: this.state.role,
         };
-        itemsRef.push(item);
+        ideasRef.push(idea);
         this.setState({
             ideaName: '',
             descrip: '',
