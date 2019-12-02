@@ -12,6 +12,8 @@ import Octicon, { Plus, ArrowLeft, Person } from '@primer/octicons-react';
 import Button from 'react-bootstrap/Button';
 import Firebase from "../firebase";
 import {Link} from "react-router-dom";
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 
@@ -24,7 +26,7 @@ class Ideas extends Component {
         };
     }
 
-    componentWillMount(){
+    componentDidMount(){
         /* Create reference to messages in Firebase Database */
         let ideasRef = Firebase.database().ref('ideas').orderByKey().limitToLast(100);
         ideasRef.on('child_added', snapshot => {
@@ -35,97 +37,113 @@ class Ideas extends Component {
     }
 
     render() {
-        function alertClicked() {
-            alert('Pretend this works ;)');
-        }
-
-        return (
+        const { ideas } = this.state;
+        // TODO: Center Loader
+        // return (
+        //     <div className="loader">
+        //         <Loader
+        //             type="Puff"
+        //             color="#00BFFF"
+        //             height={80}
+        //             width={80}
+        //
+        //         />
+        //     </div>
+        //
+        // );
+        return ideas.length ?
             <React.Fragment>
-                <Container fluid="true">
-                    <Row className="titlePadding">
-                        <Col>
-                            <Button variant="outline-primary" type="button" href="/home">
-                                <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+            <Container fluid="true">
+                <Row className="titlePadding">
+                    <Col>
+                        <Button variant="outline-primary" type="button" href="/home">
+                            <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+                        </Button>
+                    </Col>
+
+                    <Col>
+                        <Nav className="justify-content-center" fill="true" variant="pills" activeKey="ideas">
+                            <Nav.Item>
+                                <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                    </Col>
+
+                    <Col>
+                        <div className="float-right">
+                            <Button type="button" href="/profile">
+                                <Octicon icon={Person} size='medium' ariaLabel='Person' />
                             </Button>
-                        </Col>
+                        </div>
+                    </Col>
+                </Row>
 
-                        <Col>
-                            <Nav className="justify-content-center" fill="true" variant="pills" activeKey="ideas">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
-                                </Nav.Item>
-                            </Nav>
-                        </Col> 
+                <Row>
+                    <SearchBar />
+                </Row>
+            </Container>
 
-                        <Col>
-                            <div className="float-right">
-                                <Button type="button" href="/profile">
-                                    <Octicon icon={Person} size='medium' ariaLabel='Person' />
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
+            <ListGroup>
+                {this.state.ideas.map( idea =>
+                    <Link key={idea.id} style={{ textDecoration: 'none', color: 'black' }} to={{
+                        pathname: '/idea-details',
+                        state: {
+                            ideaName: idea.text.ideaName,
+                            descrip: idea.text.descrip,
+                            teamSize: idea.text.teamSize,
+                            skills: idea.text.skills.split(', '),
+                            role: idea.text.role
+                        }
+                    }}>
+                        <ListGroup.Item >
+                            <Row>
+                                <Col xs={10}>
+                                    <h1 className="title">{idea.text.ideaName}</h1>
 
-                    <Row>
-                        <SearchBar />
-                    </Row>
-                </Container>
+                                </Col>
 
-                <ListGroup>
-                    {this.state.ideas.map( idea =>
-                            <Link key={idea.id} style={{ textDecoration: 'none', color: 'black' }} to={{
-                                pathname: '/idea-details',
-                                state: {
-                                    ideaName: idea.text.ideaName,
-                                    descrip: idea.text.descrip,
-                                    teamSize: idea.text.teamSize,
-                                    skills: idea.text.skills.split(', '),
-                                    role: idea.text.role
-                                }
-                            }}>
-                            <ListGroup.Item >
-                                <Row>
-                                    <Col xs={10}>
-                                        <h1 className="title">{idea.text.ideaName}</h1>
+                                <Col xs={2}>
+                                    <Badge className="float-right m-2" pill="true" variant="primary">
+                                        Members: {idea.text.members}/{idea.text.teamSize}
+                                    </Badge>
+                                </Col>
+                            </Row>
 
-                                    </Col>
+                            <Row>
+                                <h2 className="subtitle">
+                                    {idea.text.descrip}
 
-                                    <Col xs={2}>
-                                        <Badge className="float-right m-2" pill="true" variant="primary">
-                                            Members: {idea.text.members}/{idea.text.teamSize}
-                                        </Badge>
-                                    </Col>
-                                </Row>
+                                </h2>
+                            </Row>
+                        </ListGroup.Item>
+                    </Link>
 
-                                <Row>
-                                    <h2 className="subtitle">
-                                        {idea.text.descrip}
+                )
+                }
 
-                                    </h2>
-                                </Row>
-                            </ListGroup.Item>
-                            </Link>
+            </ListGroup>
 
-                        )
-                    }
+            <div className="bottomright">
+                <Button href="create-idea">
+                    <Octicon icon={Plus} size='medium' ariaLabel='Plus' />
+                </Button>
+            </div>
 
-                </ListGroup>
-
-                <div className="bottomright">
-                    <Button href="create-idea">
-                        <Octicon icon={Plus} size='medium' ariaLabel='Plus' />
-                    </Button>
+        </React.Fragment> : (
+                <div className="loader">
+                    <Loader
+                        type="Puff"
+                        color="#00BFFF"
+                        height={80}
+                        width={80}
+                    />
                 </div>
-
-            </React.Fragment>
-
-
         );
     }
 }
