@@ -15,6 +15,7 @@ import ProposeIdea from './Pages/ProposeIdea';
 import IdeaDetails from './Pages/IdeaDetails';
 import EditProfile from './Pages/EditProfile';
 import CreateIdea from './Pages/CreateIdea';
+import IndvAttendee from './Pages/IndvAttendee';
 
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
             <Route path="/idea-details" component={IdeaDetails} exact={true} />
             <Route path="/edit-profile" component={EditProfile} exact={true} />
             <Route path="/create-idea" component={CreateIdea} exact={true} />
+            <Route path="/indv-attendee" component={IndvAttendee} exact={true} />
           </Switch>
         </div>
       </Router>

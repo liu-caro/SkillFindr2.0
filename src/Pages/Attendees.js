@@ -59,7 +59,7 @@ class Attendees extends Component {
                     <SearchBar />
                 </Row>
                 <ListGroup>
-                    <ListGroup.Item>
+                    <ListGroup.Item action href="/indv-attendee">
                     <Row>
                         <Col xs={2}>
                             <Image src={Cari} thumbnail="true" alt="hackbeanpot" />
