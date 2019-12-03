@@ -38,7 +38,6 @@ class Ideas extends Component {
 
     render() {
         const { ideas } = this.state;
-        // TODO: Center Loader
         // return (
         //     <div className="loader">
         //         <Loader
