@@ -96,14 +96,18 @@ class Home extends Component {
 
                     {this.state.events.map( event =>
                         <Link key={event.id} style={{ textDecoration: 'none', color: 'black' }} to={{
-                            pathname: '/event'
-                            // state: {
-                            //     ideaName: idea.text.ideaName,
-                            //     descrip: idea.text.descrip,
-                            //     teamSize: idea.text.teamSize,
-                            //     skills: idea.text.skills.split(', '),
-                            //     role: idea.text.role
-                            // }
+                            pathname: '/event',
+                            state: {
+                                eventName: event.text.eventName,
+                                location: event.text.location,
+                                startDate: event.text.startDate,
+                                startTime: event.text.startTime,
+                                endDate: event.text.endDate,
+                                endTime: event.text.endTime,
+                                descrip: event.text.descrip,
+                                attendees: event.text.attendees,
+                                eventId: event.id
+                            }
                         }}>
                             <ListGroup.Item >
                                 <Row>
