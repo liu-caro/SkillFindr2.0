@@ -4,6 +4,12 @@ h1
     text-align:center;
 }
 
+h2
+{
+    margin: 0 auto;
+    text-align:center;
+}
+
 .input-group.md-form.form-sm.form-1 input {
   border: 1px solid #bdbdbd;
   border-top-right-radius: 0.25rem;
@@ -18,4 +24,11 @@ h1
 
 .titlePadding {
     padding: 10px;
+}
+
+.sub {
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 15px;
+    width: 350px; 
 }

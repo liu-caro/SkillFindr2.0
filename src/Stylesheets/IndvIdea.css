@@ -1,17 +1,41 @@
-p {
+.pdes {
     margin-left:auto;
     margin-right:auto;
     margin-top: 50px;
     text-align:center;
     width: 350px; 
-     }
+}
 
 div.skill-list{
     font-size: 30px;
     margin-left:auto;
     margin-right:auto;
-    margin-top: 50px;
-    text-align:center;
-    width: 250px; 
+    margin-top: 25px;
+    text-align:center; 
+}
 
+.containerIdea {
+  display: block;
+}
+
+.titleIdea {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 36px;
+  text-align: center;
+  padding: 5px;
+}
+
+.subIdea {
+  font-size: 24px;
+  text-align:left; 
+  padding: 25px;
+}
+
+.checkIdeas {
+  font-size: 18px;
+  text-align:left; 
+  padding-left: 10px;
+  margin-left:auto;
+  margin-right:auto;
 }

@@ -75,7 +75,7 @@ class Event extends Component {
                     </Row>
 
                     <Row>
-                        <p>Submissions open from <b>START DATE</b> to <b>END DATE</b></p>
+                        <p className="pdes">Submissions open from <b>START DATE</b> to <b>END DATE</b></p>
                     </Row>
 
                     <Row className="mb-2">
@@ -108,7 +108,7 @@ class Event extends Component {
 
                     <Row>
                         <Col/>
-                            <p>
+                        <p className="pdes">
                                 An independently-run Boston hackathon for curious students,
                                 hackers, makers, and beginners.
                             </p>

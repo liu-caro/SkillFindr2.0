@@ -46,10 +46,12 @@ class Home extends Component {
                         <Row>
                             <Col xs={1}>
                                 <Image src={HackBeanpot} thumbnail="true" alt="hackbeanpot" />
+                                <div className="sub">LOCATION</div>
                             </Col>
                             <Col xs={11}>
                                 <h1>HackBeanpot</h1>
-                                <p>Feb 7-9</p>
+                                <p className="pdes">Feb 7-9</p>
+
                             </Col>
                         </Row>
                     </ListGroup.Item>
@@ -60,7 +62,7 @@ class Home extends Component {
                             </Col>
                             <Col xs={11}>
                                 <h1>Community Game Jam</h1>
-                                <p>Feb 15-16</p>
+                                <p className="pdes">Feb 15-16</p>
                             </Col>
                         </Row>
                     </ListGroup.Item>
@@ -72,7 +74,7 @@ class Home extends Component {
                             </Col>
                             <Col xs={11}>
                                 <h1>HackNYU</h1>
-                                <p>Feb 15-17</p>
+                                <p className="pdes">Feb 15-17</p>
                             </Col>
                         </Row>
                     </ListGroup.Item>
