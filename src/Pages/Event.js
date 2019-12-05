@@ -81,17 +81,15 @@ class Event extends Component {
                     <Row>
                         <Col />
                         <Col>
-                            <p className="pdesE" style={{ textAlign: 'left' }}>Submissions open from <b>START DATE</b> to <b>END DATE</b></p>
+                            <p style={{ textAlign: 'left', paddingTop: '10px' }}>Submissions open from <b>START DATE</b> to <b>END DATE</b></p>
                         </Col>
                         <Col />
                     </Row>
 
-                    <div className="divider" />
-
                     <Row>
                         <Col />
                         <Col>
-                            <h1 style={{ textAlign: 'left' }} >LOCATION</h1>
+                            <p style={{ textAlign: 'left' }}>LOCATION</p>
                         </Col>
                         <Col />
                     </Row>
