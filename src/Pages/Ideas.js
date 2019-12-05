@@ -22,13 +22,13 @@ class Ideas extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ideas: []
+            ideas: [],
+            eventId: this.props.location.state.eventId
         };
     }
 
     componentDidMount(){
-        /* Create reference to messages in Firebase Database */
-        let ideasRef = Firebase.database().ref('ideas').orderByKey().limitToLast(100);
+        let ideasRef = Firebase.database().ref('ideas' + this.state.eventId).orderByKey().limitToLast(100);
         ideasRef.on('child_added', snapshot => {
             /* Update React state when message is added at Firebase Database */
             let idea = { text: snapshot.val(), id: snapshot.key };
@@ -47,6 +47,7 @@ class Ideas extends Component {
                             <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
                         </Button>
                     </Col>
+                    {console.log(this.state.eventId)}
 
                     <Col>
                         <Nav className="justify-content-center" fill="true" variant="pills" activeKey="ideas">
@@ -116,9 +117,16 @@ class Ideas extends Component {
             </ListGroup>
 
             <div className="bottomright">
-                <Button href="create-idea">
+                <Link eventKey="ideas" to={{
+                    pathname: '/create-idea',
+                    state: {
+                        eventId: this.state.eventId
+                    }
+                }}>
+                <Button>
                     <Octicon icon={Plus} size='medium' ariaLabel='Plus' />
                 </Button>
+                </Link>
             </div>
 
         </React.Fragment> : (

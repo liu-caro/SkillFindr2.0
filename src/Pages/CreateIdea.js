@@ -20,7 +20,8 @@ class CreateIdea extends Component {
             descrip: '',
             teamSize: 1,
             skills: '',
-            role: ''
+            role: '',
+            eventId: this.props.location.state.eventId
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +35,7 @@ class CreateIdea extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const ideasRef = Firebase.database().ref('ideas');
+        const ideasRef = Firebase.database().ref('ideas' + this.state.eventId);
         const idea = {
             ideaName: this.state.ideaName,
             descrip: this.state.descrip,

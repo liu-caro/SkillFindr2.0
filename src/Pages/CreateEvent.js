@@ -48,7 +48,8 @@ class CreateEvent extends Component {
             startTime: this.state.startTime,
             endDate: this.state.endDate,
             endTime: this.state.endTime,
-            descrip: this.state.descrip
+            descrip: this.state.descrip,
+            attendees: 0
         };
         itemsRef.push(item);
         this.setState({

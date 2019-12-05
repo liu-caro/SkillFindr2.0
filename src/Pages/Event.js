@@ -9,14 +9,26 @@ import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
 import HackBeanpot from '../Images/hackBeanPot.png';
 import Octicon, { ArrowLeft, Person } from '@primer/octicons-react'
+import {Link} from "react-router-dom";
 
 
 
 class Event extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {isRegistered: false};
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            eventName: this.props.location.state.eventName,
+            location: this.props.location.state.location,
+            startDate: this.props.location.state.startDate,
+            startTime: this.props.location.state.startTime,
+            endDate: this.props.location.state.endDate,
+            endTime: this.props.location.state.endTime,
+            descrip: this.props.location.state.descrip,
+            attendees: this.props.location.state.attendees,
+            eventId: this.props.location.state.eventId
+        };
+
+    }
 
     render() {
 
@@ -39,7 +51,12 @@ class Event extends Component {
                                     <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
+                                    <Link eventKey="ideas" to={{
+                                        pathname: '/ideas',
+                                        state: {
+                                           eventId: this.state.eventId
+                                        }
+                                    }}>Ideas</Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
@@ -68,12 +85,13 @@ class Event extends Component {
                         <Col />
 
                         <Col>
-                            <h1 style={{ textAlign: 'left' }}>HackBeanpot</h1>
+
+                            <h1 style={{ textAlign: 'left' }}>{this.state.eventName}</h1>
                         </Col>
                         
                         <Col>
                             <Badge pill="true" style={{ padding: '15px', textAlign: 'right' }} variant="primary">
-                                # of Attendees
+                                {this.state.attendees} Attendees
                             </Badge>
                         </Col>
                     </Row>
@@ -81,7 +99,7 @@ class Event extends Component {
                     <Row>
                         <Col />
                         <Col>
-                            <p style={{ textAlign: 'left', paddingTop: '10px' }}>Submissions open from <b>START DATE</b> to <b>END DATE</b></p>
+							<p className="pdesE" style={{ textAlign: 'left' }}>Submissions open from <b>{this.state.startDate}</b> to <b>{this.state.endDate}</b></p>
                         </Col>
                         <Col />
                     </Row>
@@ -89,7 +107,7 @@ class Event extends Component {
                     <Row>
                         <Col />
                         <Col>
-                            <p style={{ textAlign: 'left' }}>LOCATION</p>
+                            <p className="pdesE" style={{ textAlign: 'left' }}>{this.state.location}</p>
                         </Col>
                         <Col />
                     </Row>
@@ -97,17 +115,17 @@ class Event extends Component {
                     <Row>
                         <Col/>
                         <p className="pdes">
-                                An independently-run Boston hackathon for curious students,
-                                hackers, makers, and beginners.
+                                {this.state.descrip}
                             </p>
                         <Col/>
+
                     </Row>
 
                     <Row className="mb-2">
 
                         <Col />
 
-                        {/*{console.log(this.props.location.state)}*/}
+
 
                         {data ?
                             (<Button variant="light" size="lg" href="/register" disabled> Registered</Button>) :
@@ -124,6 +142,7 @@ class Event extends Component {
                         }
 
                         <Col />
+
                     </Row>
                 </Container>
             </React.Fragment>
