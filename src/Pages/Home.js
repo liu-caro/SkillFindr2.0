@@ -12,15 +12,32 @@ import CommunityGameJam from '../Images/cgj-logo.png';
 import HackNYU from '../Images/hnyu-logo.jpg';
 import Octicon, { Person, Plus } from '@primer/octicons-react';
 import Button from 'react-bootstrap/Button';
+import Firebase from "../firebase";
+import {Link} from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 
 
 
 class Home extends Component {
-    render() {
-        function alertClicked() {
-            alert('Pretend this works ;)');
-        }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            events: []
+        };
+    }
+
+    componentDidMount(){
+        /* Create reference to messages in Firebase Database */
+        let eventsRef = Firebase.database().ref('events').orderByKey().limitToLast(100);
+        eventsRef.on('child_added', snapshot => {
+            /* Update React state when message is added at Firebase Database */
+            let event = { text: snapshot.val(), id: snapshot.key };
+            this.setState({ events: [event].concat(this.state.events) });
+        })
+    }
+
+    render() {
         return (
             <React.Fragment>
                 <Container fluid="true">
@@ -53,7 +70,7 @@ class Home extends Component {
                             </Col>
                         </Row>
                     </ListGroup.Item>
-                    <ListGroup.Item action onClick={alertClicked}>
+                    <ListGroup.Item>
                         <Row>
                             <Col xs={1}>
                                 <Image src={CommunityGameJam} thumbnail="true" alt="CommunityGameJam" />
@@ -65,7 +82,7 @@ class Home extends Component {
                         </Row>
                     </ListGroup.Item>
 
-                    <ListGroup.Item action onClick={alertClicked}>
+                    <ListGroup.Item>
                         <Row>
                             <Col xs={1}>
                                 <Image src={HackNYU} thumbnail="true" alt="HackNYU" />
@@ -76,6 +93,33 @@ class Home extends Component {
                             </Col>
                         </Row>
                     </ListGroup.Item>
+
+                    {this.state.events.map( event =>
+                        <Link key={event.id} style={{ textDecoration: 'none', color: 'black' }} to={{
+                            pathname: '/event'
+                            // state: {
+                            //     ideaName: idea.text.ideaName,
+                            //     descrip: idea.text.descrip,
+                            //     teamSize: idea.text.teamSize,
+                            //     skills: idea.text.skills.split(', '),
+                            //     role: idea.text.role
+                            // }
+                        }}>
+                            <ListGroup.Item >
+                                <Row>
+                                    <Col xs={1}>
+                                        <Image src={HackBeanpot} thumbnail="true" alt="hackbeanpot" />
+                                    </Col>
+                                    <Col xs={11}>
+                                        <h1>{event.text.eventName}</h1>
+                                        <p>{event.text.startDate}-{event.text.endDate}</p>
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                        </Link>
+
+                    )
+                    }
 
                 </ListGroup>
 
