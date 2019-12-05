@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 import Firebase from '../firebase'
 import {Link} from "react-router-dom";
+import FileUploader from "react-firebase-file-uploader";
 
 
 class CreateEvent extends Component {
@@ -21,7 +22,10 @@ class CreateEvent extends Component {
             startTime: '',
             endDate: '',
             endTime: '',
-            descrip: ''
+            descrip: '',
+            isUploading: false,
+            progress: 0,
+            imageURL: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,6 +41,26 @@ class CreateEvent extends Component {
         });
         // console.log(Firebase.database().ref('events'));
     }
+
+    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+    handleProgress = progress => this.setState({ progress });
+    handleUploadError = error => {
+        this.setState({ isUploading: false });
+        console.error(error);
+    };
+    handleUploadSuccess = filename => {
+        this.setState({ avatar: filename, progress: 100, isUploading: false });
+        Firebase
+            .storage()
+            .ref("images")
+            .child(filename)
+            .getDownloadURL()
+            .then(url => {
+                this.setState({ imageURl: url })
+
+            });
+
+    };
 
     handleSubmit(e) {
         e.preventDefault();
@@ -89,6 +113,34 @@ class CreateEvent extends Component {
                         <Form.Label>Event Name</Form.Label>
                         <Form.Control name="eventName" type="text" onChange={this.handleChange} value={this.state.eventName}/>
                     </Form.Group>
+
+                    <Form.Group as={Col} controlId="formBasicImage">
+                        <FileUploader
+                            accept="image/*"
+                            name="avatar"
+                            randomizeFilename
+                            storageRef={Firebase.storage().ref("images")}
+                            onUploadStart={this.handleUploadStart}
+                            onUploadError={this.handleUploadError}
+                            onUploadSuccess={this.handleUploadSuccess}
+                            onProgress={this.handleProgress}
+                        />
+                        {this.state.imageURL.length ? <img
+                                src={this.state.imageURL}
+                                alt="Uploaded Images"
+                                height="300"
+                                width="400"
+                            /> : <div/>}
+                        {console.log(this.state.imageURL)}
+                        {/*<img*/}
+                        {/*    src={this.state.imageURL || "https://via.placeholder.com/400x300"}*/}
+                        {/*    alt="Uploaded Images"*/}
+                        {/*    height="300"*/}
+                        {/*    width="400"*/}
+                        {/*/>*/}
+                    </Form.Group>
+
+
 
                     <Form.Group as={Col} controlId="formBasicLocation">
                         <Form.Label>Location</Form.Label>

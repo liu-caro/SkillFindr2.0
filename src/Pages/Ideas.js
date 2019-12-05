@@ -52,7 +52,21 @@ class Ideas extends Component {
                     <Col>
                         <Nav className="justify-content-center" fill="true" variant="pills" activeKey="ideas">
                             <Nav.Item>
-                                <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
+                                {/*<Link to={{*/}
+                                {/*    pathname: '/event',*/}
+                                {/*    state: {*/}
+                                {/*        eventName: event.text.eventName,*/}
+                                {/*        location: event.text.location,*/}
+                                {/*        startDate: event.text.startDate,*/}
+                                {/*        startTime: event.text.startTime,*/}
+                                {/*        endDate: event.text.endDate,*/}
+                                {/*        endTime: event.text.endTime,*/}
+                                {/*        descrip: event.text.descrip,*/}
+                                {/*        attendees: event.text.attendees,*/}
+                                {/*        eventId: event.id*/}
+                                {/*    }*/}
+                                {/*}}/>*/}
+                                {/*<Nav.Link eventKey="event" href="/event">Event</Nav.Link>*/}
                             </Nav.Item>
                             <Nav.Item>
                                 <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>

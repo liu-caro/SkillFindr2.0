@@ -138,7 +138,14 @@ class Event extends Component {
                     <Row className="mb-2">
                         <Col />
                         {data ?
-                            (<Button size="lg" href="/create-idea">Create Team</Button>) : (<div />)
+                            (   <Link eventKey="ideas" to={{
+                                    pathname: '/create-idea',
+                                    state: {
+                                        eventId: this.state.eventId
+                                    }
+                                }}>
+                                 <Button size="lg" href="/create-idea">Create Team</Button>
+                            </Link>) : (<div />)
                         }
 
                         <Col />
