@@ -55,55 +55,45 @@ class Event extends Component {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col />
-
-                        <Col>
-                            <h1>HackBeanpot</h1>
-                        </Col>
-                        
-                        <Col>
-                            <Badge pill="true" style={{ padding:'15px' }} variant="primary">
-                                # of Attendees
-                            </Badge>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col/>
-                            <img src={HackBeanpot} alt="HackBeanpot"/>
-                        <Col/>
-                    </Row>
 
                     <Row>
-                        <p className="pdes">Submissions open from <b>START DATE</b> to <b>END DATE</b></p>
-                    </Row>
-
-                    <Row className="mb-2">
-
                         <Col />
-                    
-                        {/*{console.log(this.props.location.state)}*/}
-
-                        { data ?
-                            (<Button variant="light" size="lg" href="/register" disabled> Registered</Button>) :
-                            (<Button className="btn btn-primary" size="lg" href="/register"> Register </Button>)}
-
-                        
+                        <img src={HackBeanpot} alt="HackBeanpot" />
                         <Col />
-                    </Row>
-                    <Row className="mb-2">
-                        <Col/>
-                        { data ?
-                            (<Button size="lg" href="/create-idea">Create Team</Button>) : (<div/>)
-                            }
-
-                        <Col/>
                     </Row>
 
                     <div className="divider" />
 
                     <Row>
-                        <h1>LOCATION</h1>
+                        <Col />
+
+                        <Col>
+                            <h1 style={{ textAlign: 'left' }}>HackBeanpot</h1>
+                        </Col>
+                        
+                        <Col>
+                            <Badge pill="true" style={{ padding: '15px', textAlign: 'right' }} variant="primary">
+                                # of Attendees
+                            </Badge>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col />
+                        <Col>
+                            <p className="pdesE" style={{ textAlign: 'left' }}>Submissions open from <b>START DATE</b> to <b>END DATE</b></p>
+                        </Col>
+                        <Col />
+                    </Row>
+
+                    <div className="divider" />
+
+                    <Row>
+                        <Col />
+                        <Col>
+                            <h1 style={{ textAlign: 'left' }} >LOCATION</h1>
+                        </Col>
+                        <Col />
                     </Row>
 
                     <Row>
@@ -113,6 +103,29 @@ class Event extends Component {
                                 hackers, makers, and beginners.
                             </p>
                         <Col/>
+                    </Row>
+
+                    <Row className="mb-2">
+
+                        <Col />
+
+                        {/*{console.log(this.props.location.state)}*/}
+
+                        {data ?
+                            (<Button variant="light" size="lg" href="/register" disabled> Registered</Button>) :
+                            (<Button className="btn btn-primary" size="lg" href="/register"> Register </Button>)}
+
+
+                        <Col />
+                    </Row>
+
+                    <Row className="mb-2">
+                        <Col />
+                        {data ?
+                            (<Button size="lg" href="/create-idea">Create Team</Button>) : (<div />)
+                        }
+
+                        <Col />
                     </Row>
                 </Container>
             </React.Fragment>
