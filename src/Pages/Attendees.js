@@ -24,7 +24,7 @@ class Attendees extends Component {
     render() {
         return (
             <React.Fragment>
-
+                <Container fluid="true">
                 <Row className="titlePadding">
                     <Col >
                         <Button variant="outline-primary" type="button" href="/home">
@@ -58,6 +58,7 @@ class Attendees extends Component {
                 <Row>
                     <SearchBar />
                 </Row>
+                </Container>
                 <ListGroup>
                     <ListGroup.Item action href="/indv-attendee">
                     <Row>

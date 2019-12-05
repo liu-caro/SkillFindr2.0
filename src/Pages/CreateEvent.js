@@ -15,7 +15,13 @@ class CreateEvent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            eventName: ''
+            eventName: '',
+            location: '',
+            startDate: '',
+            startTime: '',
+            endDate: '',
+            endTime: '',
+            descrip: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,10 +43,23 @@ class CreateEvent extends Component {
         const itemsRef = Firebase.database().ref('events' );
         const item = {
             eventName: this.state.eventName,
+            location: this.state.location,
+            startDate: this.state.startDate,
+            startTime: this.state.startTime,
+            endDate: this.state.endDate,
+            endTime: this.state.endTime,
+            descrip: this.state.descrip
         };
         itemsRef.push(item);
         this.setState({
-            eventName: ''
+            eventName: '',
+            location: '',
+            startDate: '',
+            startTime: '',
+            endDate: '',
+            endTime: '',
+            descrip: ''
+
         });
         this.props.history.push("/event")
     }
@@ -72,40 +91,40 @@ class CreateEvent extends Component {
 
                     <Form.Group as={Col} controlId="formBasicLocation">
                         <Form.Label>Location</Form.Label>
-                        <Form.Control type="location" />
+                        <Form.Control name="location" type="location" onChange={this.handleChange} value={this.state.location}/>
                     </Form.Group>
 
                     <Form.Row className="sidePadding">
                         <Form.Group as={Col} controlId="formBasicDate">
                             <Form.Label>Start Date</Form.Label>
-                            <Form.Control type="date" />
+                            <Form.Control name="startDate" type="date" onChange={this.handleChange} value={this.state.startDate}/>
                         </Form.Group>
 
                         <div className="divider" />
 
                         <Form.Group as={Col} controlId="formBasicTime">
                             <Form.Label>Start Time</Form.Label>
-                            <Form.Control type="time" />
+                            <Form.Control name="startTime" type="time" onChange={this.handleChange} value={this.state.startTime}/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row className="sidePadding">
                         <Form.Group as={Col} controlId="formBasicDate">
                             <Form.Label>End Date</Form.Label>
-                            <Form.Control type="date" />
+                            <Form.Control name="endDate" type="date" onChange={this.handleChange} value={this.state.endDate}/>
                         </Form.Group>
 
                         <div className="divider" />
 
                         <Form.Group as={Col} controlId="formBasicTime">
                             <Form.Label>End Time</Form.Label>
-                            <Form.Control type="time" />
+                            <Form.Control name="endTime" type="time" onChange={this.handleChange} value={this.state.endTime}/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Group as={Col} controlId="formBasicDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="description" />
+                        <Form.Control name="descrip" type="description" onChange={this.handleChange} value={this.state.descrip}/>
                     </Form.Group>
 
                     <Form.Row className="sidePadding">
