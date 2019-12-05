@@ -106,7 +106,6 @@ class Ideas extends Component {
                             <Row>
                                 <h2 className="subtitle">
                                     {idea.text.descrip}
-
                                 </h2>
                             </Row>
                         </ListGroup.Item>

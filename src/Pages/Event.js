@@ -72,63 +72,79 @@ class Event extends Component {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col />
-
-                        <Col>
-                            <h1>{this.state.eventName}</h1>
-                        </Col>
-                        
-                        <Col>
-                            <Badge pill="true" style={{ padding:'15px' }} variant="primary">
-                                {this.state.attendees} Attendees
-                            </Badge>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col/>
-                            <img src={HackBeanpot} alt="HackBeanpot"/>
-                        <Col/>
-                    </Row>
 
                     <Row>
-                        <p>Submissions open from <b>{this.state.startDate}</b> to <b>{this.state.endDate}</b></p>
-                    </Row>
-
-                    <Row className="mb-2">
-
                         <Col />
-                    
-                        {/*{console.log(this.props.location.state)}*/}
-
-                        { data ?
-                            (<Button variant="light" size="lg" href="/register" disabled> Registered</Button>) :
-                            (<Button className="btn btn-primary" size="lg" href="/register"> Register </Button>)}
-
-                        
+                        <img src={HackBeanpot} alt="HackBeanpot" />
                         <Col />
-                    </Row>
-                    <Row className="mb-2">
-                        <Col/>
-                        { data ?
-                            (<Button size="lg" href="/create-idea">Create Team</Button>) : (<div/>)
-                            }
-
-                        <Col/>
                     </Row>
 
                     <div className="divider" />
 
                     <Row>
-                        <h1>{this.state.location}</h1>
+                        <Col />
+
+                        <Col>
+
+                            <h1 style={{ textAlign: 'left' }}>{this.state.eventName}</h1>
+                        </Col>
+                        
+                        <Col>
+                            <Badge pill="true" style={{ padding: '15px', textAlign: 'right' }} variant="primary">
+                                {this.state.attendees} Attendees
+                            </Badge>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col />
+                        <Col>
+                            <p className="pdesE" style={{ textAlign: 'left' }}>Submissions open from <b>{this.state.startDate}</b> to <b>{this.state.endDate}</b></p>
+                        </Col>
+                        <Col />
+                    </Row>
+
+                    <div className="divider" />
+
+                    <Row>
+                        <Col />
+                        <Col>
+                            <h1 style={{ textAlign: 'left' }} >{this.state.location}</h1>
+                        </Col>
+                        <Col />
                     </Row>
 
                     <Row>
                         <Col/>
-                            <p>
+                        <p className="pdes">
                                 {this.state.descrip}
                             </p>
                         <Col/>
+
+                    </Row>
+
+                    <Row className="mb-2">
+
+                        <Col />
+
+
+
+                        {data ?
+                            (<Button variant="light" size="lg" href="/register" disabled> Registered</Button>) :
+                            (<Button className="btn btn-primary" size="lg" href="/register"> Register </Button>)}
+
+
+                        <Col />
+                    </Row>
+
+                    <Row className="mb-2">
+                        <Col />
+                        {data ?
+                            (<Button size="lg" href="/create-idea">Create Team</Button>) : (<div />)
+                        }
+
+                        <Col />
+
                     </Row>
                 </Container>
             </React.Fragment>
