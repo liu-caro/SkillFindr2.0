@@ -153,7 +153,7 @@ class Event extends Component {
 
                     <Row>
                         <Col/>
-                        <p className="pdes">
+                            <p className="pdes">
                                 {this.state.descrip}
                             </p>
                         <Col/>
@@ -163,8 +163,6 @@ class Event extends Component {
                     <Row className="mb-2">
 
                         <Col />
-
-
 
                         {data ?
                             (<Button variant="light" size="lg" href="/register" disabled> Registered</Button>) :
