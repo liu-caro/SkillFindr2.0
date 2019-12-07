@@ -61,43 +61,6 @@ class Home extends Component {
                 </Container>
                 
                 <ListGroup>
-                    <ListGroup.Item action href="/event">
-                        <Row>
-                            <Col xs={1}>
-                                <Image src={HackBeanpot} thumbnail="true" alt="hackbeanpot" />
-                                <div className="sub">LOCATION</div>
-                            </Col>
-                            <Col xs={11}>
-                                <h1>HackBeanpot</h1>
-                                <p className="pdes">Feb 7-9</p>
-
-                            </Col>
-                        </Row>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                        <Row>
-                            <Col xs={1}>
-                                <Image src={CommunityGameJam} thumbnail="true" alt="CommunityGameJam" />
-                            </Col>
-                            <Col xs={11}>
-                                <h1>Community Game Jam</h1>
-                                <p className="pdes">Feb 15-16</p>
-                            </Col>
-                        </Row>
-                    </ListGroup.Item>
-
-                    <ListGroup.Item>
-                        <Row>
-                            <Col xs={1}>
-                                <Image src={HackNYU} thumbnail="true" alt="HackNYU" />
-                            </Col>
-                            <Col xs={11}>
-                                <h1>HackNYU</h1>
-                                <p className="pdes">Feb 15-17</p>
-                            </Col>
-                        </Row>
-                    </ListGroup.Item>
-
                     {this.state.events.map( event =>
                         <Link key={event.id} style={{ textDecoration: 'none', color: 'black' }} to={{
                             pathname: '/event',
@@ -121,7 +84,6 @@ class Home extends Component {
                                     </Col>
                                     <Col xs={11}>
                                         <h1>{event.text.eventName}</h1>
-                                        <p className="pdes">{event.text.location}</p>
                                         <p className="pdes">{event.text.startDate} to {event.text.endDate}</p>
                                     </Col>
                                 </Row>
