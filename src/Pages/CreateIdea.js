@@ -17,11 +17,20 @@ class CreateIdea extends Component {
         super(props);
         this.state = {
             ideaName: '',
-            descrip: '',
+            ideaDescrip: '',
             teamSize: 1,
             skills: '',
             role: '',
-            eventId: this.props.location.state.eventId
+            eventId: this.props.location.state.eventId,
+            eventName: this.props.location.state.eventName,
+            location: this.props.location.state.location,
+            startDate: this.props.location.state.startDate,
+            startTime: this.props.location.state.startTime,
+            endDate: this.props.location.state.endDate,
+            endTime: this.props.location.state.endTime,
+            descrip: this.props.location.state.descrip,
+            attendees: this.props.location.state.attendees,
+            imageURL: this.props.location.state.imageURL
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,7 +47,7 @@ class CreateIdea extends Component {
         const ideasRef = Firebase.database().ref('ideas' + this.state.eventId);
         const idea = {
             ideaName: this.state.ideaName,
-            descrip: this.state.descrip,
+            ideaDescrip: this.state.ideaDescrip,
             teamSize: this.state.teamSize,
             skills: this.state.skills,
             role: this.state.role,
@@ -47,7 +56,7 @@ class CreateIdea extends Component {
         ideasRef.push(idea);
         this.setState({
             ideaName: '',
-            descrip: '',
+            ideaDescrip: '',
             teamSize: '',
             skills: '',
             role: ''
@@ -56,10 +65,20 @@ class CreateIdea extends Component {
             pathname: '/idea-details',
             state: {
                 ideaName: this.state.ideaName,
-                descrip: this.state.descrip,
+                ideaDescrip: this.state.ideaDescrip,
                 teamSize: this.state.teamSize,
                 skills: this.state.skills.split(', '),
-                role: this.state.role
+                role: this.state.role,
+                eventId: this.state.eventId,
+                eventName: this.state.eventName,
+                location: this.state.location,
+                startDate: this.state.startDate,
+                startTime: this.state.startTime,
+                endDate: this.state.endDate,
+                endTime: this.state.endTime,
+                descrip: this.state.descrip,
+                attendees: this.state.attendees,
+                imageURL: this.state.imageURL
             }
         });
     }
@@ -90,7 +109,7 @@ class CreateIdea extends Component {
 
                     <Form.Group as={Col} controlId="formBasicDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control name="descrip" as="textarea" placeholder="A web app to find hackathon team members" type="text" onChange={this.handleChange} value={this.state.descrip} />
+                        <Form.Control name="ideaDescrip" as="textarea" placeholder="A web app to find hackathon team members" type="text" onChange={this.handleChange} value={this.state.descrip} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicTeam">

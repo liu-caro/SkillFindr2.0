@@ -11,17 +11,28 @@ import Popup from "reactjs-popup";
 import Form from 'react-bootstrap/Form'
 import Confirmation from './Confirmation'
 import Octicon, { ArrowLeft, Person } from '@primer/octicons-react'
+import {LinkContainer} from "react-router-bootstrap";
 
 class IdeaDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
             ideaName: this.props.location.state.ideaName,
-            descrip: this.props.location.state.descrip,
+            ideaDescrip: this.props.location.state.ideaDescrip,
             teamSize: this.props.location.state.teamSize,
             skills: this.props.location.state.skills,
             role: this.props.location.state.role,
-            popValue: ''
+            popValue: '',
+            eventId: this.props.location.state.eventId,
+            eventName: this.props.location.state.eventName,
+            location: this.props.location.state.location,
+            startDate: this.props.location.state.startDate,
+            startTime: this.props.location.state.startTime,
+            endDate: this.props.location.state.endDate,
+            endTime: this.props.location.state.endTime,
+            descrip: this.props.location.state.descrip,
+            attendees: this.props.location.state.attendees,
+            imageURL: this.props.location.state.imageURL
         };
 
     }
@@ -34,24 +45,80 @@ class IdeaDetails extends Component {
                 <Container fluid="true">
                     <Row className="titlePadding">
                         <Col>
-                            <Button variant="outline-primary" type="button" href="/ideas">
-                                <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
-                            </Button>
+                            <LinkContainer to={{
+                                pathname: '/ideas',
+                                state: {
+                                    eventId: this.state.eventId,
+                                    eventName: this.state.eventName,
+                                    location: this.state.location,
+                                    startDate: this.state.startDate,
+                                    startTime: this.state.startTime,
+                                    endDate: this.state.endDate,
+                                    endTime: this.state.endTime,
+                                    descrip: this.state.descrip,
+                                    attendees: this.state.attendees,
+                                    imageURL: this.state.imageURL
+                                }}}>
+                                <Button variant="outline-primary" type="button">
+                                    <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+                                </Button>
+                            </LinkContainer>
                         </Col>
 
                         {console.log(this.state)}
 
                         <Col>
                             <Nav className="justify-content-center" fill="true" variant="pills" activeKey="ideas">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="ideas" href="/ideas">Ideas</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
-                                </Nav.Item>
+                                <LinkContainer to={{
+                                    pathname: '/event',
+                                    state: {
+                                        eventId: this.state.eventId,
+                                        eventName: this.state.eventName,
+                                        location: this.state.location,
+                                        startDate: this.state.startDate,
+                                        startTime: this.state.startTime,
+                                        endDate: this.state.endDate,
+                                        endTime: this.state.endTime,
+                                        descrip: this.state.descrip,
+                                        attendees: this.state.attendees,
+                                        imageURL: this.state.imageURL
+                                    }}}>
+                                    <Nav.Link>Event</Nav.Link>
+                                </LinkContainer>
+
+                                <LinkContainer to={{
+                                    pathname: '/ideas',
+                                    state: {
+                                        eventId: this.state.eventId,
+                                        eventName: this.state.eventName,
+                                        location: this.state.location,
+                                        startDate: this.state.startDate,
+                                        startTime: this.state.startTime,
+                                        endDate: this.state.endDate,
+                                        endTime: this.state.endTime,
+                                        descrip: this.state.descrip,
+                                        attendees: this.state.attendees,
+                                        imageURL: this.state.imageURL
+                                    }}}>
+                                    <Nav.Link>Ideas</Nav.Link>
+                                </LinkContainer>
+
+                                <LinkContainer to={{
+                                    pathname: '/attendees',
+                                    state: {
+                                        eventId: this.state.eventId,
+                                        eventName: this.state.eventName,
+                                        location: this.state.location,
+                                        startDate: this.state.startDate,
+                                        startTime: this.state.startTime,
+                                        endDate: this.state.endDate,
+                                        endTime: this.state.endTime,
+                                        descrip: this.state.descrip,
+                                        attendees: this.state.attendees,
+                                        imageURL: this.state.imageURL
+                                    }}}>
+                                    <Nav.Link>Attendees</Nav.Link>
+                                </LinkContainer>
                             </Nav>
                         </Col>
 
@@ -73,7 +140,7 @@ class IdeaDetails extends Component {
                     <Col align="center">
               
                         <p className="pdes">
-                          {this.state.descrip}
+                          {this.state.ideaDescrip}
                         </p>
                     </Col>
                  </Row>

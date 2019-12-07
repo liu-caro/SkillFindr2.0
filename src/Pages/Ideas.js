@@ -133,10 +133,20 @@ class Ideas extends Component {
                         pathname: '/idea-details',
                         state: {
                             ideaName: idea.text.ideaName,
-                            descrip: idea.text.descrip,
+                            ideaDescrip: idea.text.ideaDescrip,
                             teamSize: idea.text.teamSize,
                             skills: idea.text.skills.split(', '),
-                            role: idea.text.role
+                            role: idea.text.role,
+                            eventId: this.state.eventId,
+                            eventName: this.state.eventName,
+                            location: this.state.location,
+                            startDate: this.state.startDate,
+                            startTime: this.state.startTime,
+                            endDate: this.state.endDate,
+                            endTime: this.state.endTime,
+                            descrip: this.state.descrip,
+                            attendees: this.state.attendees,
+                            imageURL: this.state.imageURL
                         }
                     }}>
                         <ListGroup.Item >
@@ -155,7 +165,7 @@ class Ideas extends Component {
 
                             <Row>
                                 <h2 className="subtitle">
-                                    {idea.text.descrip}
+                                    {idea.text.ideaDescrip}
                                 </h2>
                             </Row>
                         </ListGroup.Item>
@@ -170,7 +180,16 @@ class Ideas extends Component {
                 <Link eventKey="ideas" to={{
                     pathname: '/create-idea',
                     state: {
-                        eventId: this.state.eventId
+                        eventId: this.state.eventId,
+                        eventName: this.state.eventName,
+                        location: this.state.location,
+                        startDate: this.state.startDate,
+                        startTime: this.state.startTime,
+                        endDate: this.state.endDate,
+                        endTime: this.state.endTime,
+                        descrip: this.state.descrip,
+                        attendees: this.state.attendees,
+                        imageURL: this.state.imageURL
                     }
                 }}>
                 <Button>
