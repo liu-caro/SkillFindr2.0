@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import Octicon, { ArrowLeft } from '@primer/octicons-react'
 import Firebase from '../firebase'
 import { Link } from "react-router-dom";
+import {LinkContainer} from "react-router-bootstrap";
 
 
 
@@ -89,9 +90,24 @@ class CreateIdea extends Component {
             <React.Fragment>
                 <Container fluid="true">
                     <Row className="titlePadding">
-                        <Button style={{ paddingTop: '10px' }} variant="outline-primary" type="button" href="/ideas">
-                            <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
-                        </Button>
+                        <LinkContainer to={{
+                            pathname: '/ideas',
+                            state: {
+                                eventId: this.state.eventId,
+                                eventName: this.state.eventName,
+                                location: this.state.location,
+                                startDate: this.state.startDate,
+                                startTime: this.state.startTime,
+                                endDate: this.state.endDate,
+                                endTime: this.state.endTime,
+                                descrip: this.state.descrip,
+                                attendees: this.state.attendees,
+                                imageURL: this.state.imageURL
+                            }}}>
+                            <Button variant="outline-primary" type="button">
+                                <Octicon icon={ArrowLeft} size='medium' ariaLabel='arrow' />
+                            </Button>
+                        </LinkContainer>
 
                         <div className="title">
                             <h1>Create Idea</h1>
@@ -109,7 +125,7 @@ class CreateIdea extends Component {
 
                     <Form.Group as={Col} controlId="formBasicDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control name="ideaDescrip" as="textarea" placeholder="A web app to find hackathon team members" type="text" onChange={this.handleChange} value={this.state.descrip} />
+                        <Form.Control name="ideaDescrip" as="textarea" placeholder="A web app to find hackathon team members" type="text" onChange={this.handleChange} value={this.state.ideaDescrip} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formBasicTeam">
