@@ -9,7 +9,8 @@ import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
 import HackBeanpot from '../Images/hackBeanPot.png';
 import Octicon, { ArrowLeft, Person } from '@primer/octicons-react'
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap';
 
 
 
@@ -47,20 +48,54 @@ class Event extends Component {
 
                         <Col>
                             <Nav className="justify-content-center" fill="true" variant="pills" activeKey="event">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="event" href="/event">Event</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Link eventKey="ideas" to={{
-                                        pathname: '/ideas',
-                                        state: {
-                                           eventId: this.state.eventId
-                                        }
-                                    }}>Ideas</Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="attendees" href="/attendees">Attendees</Nav.Link>
-                                </Nav.Item>
+                                <LinkContainer to={{
+                                    pathname: '/event',
+                                    state: {
+                                        eventId: this.state.eventId,
+                                        eventName: this.state.eventName,
+                                        location: this.state.location,
+                                        startDate: this.state.startDate,
+                                        startTime: this.state.startTime,
+                                        endDate: this.state.endDate,
+                                        endTime: this.state.endTime,
+                                        descrip: this.state.descrip,
+                                        attendees: this.state.attendees
+                                    }}}>
+                                    <Nav.Link>Event</Nav.Link>
+                                </LinkContainer>
+
+                                <LinkContainer to={{
+                                    pathname: '/ideas',
+                                    state: {
+                                        eventId: this.state.eventId,
+                                        eventName: this.state.eventName,
+                                        location: this.state.location,
+                                        startDate: this.state.startDate,
+                                        startTime: this.state.startTime,
+                                        endDate: this.state.endDate,
+                                        endTime: this.state.endTime,
+                                        descrip: this.state.descrip,
+                                        attendees: this.state.attendees
+                                    }}}>
+                                    <Nav.Link>Ideas</Nav.Link>
+                                </LinkContainer>
+
+                                <LinkContainer to={{
+                                    pathname: '/attendees',
+                                    state: {
+                                        eventId: this.state.eventId,
+                                        eventName: this.state.eventName,
+                                        location: this.state.location,
+                                        startDate: this.state.startDate,
+                                        startTime: this.state.startTime,
+                                        endDate: this.state.endDate,
+                                        endTime: this.state.endTime,
+                                        descrip: this.state.descrip,
+                                        attendees: this.state.attendees
+                                    }}}>
+                                    <Nav.Link>Attendees</Nav.Link>
+                                </LinkContainer>
+
                             </Nav>
                         </Col>
 
@@ -138,7 +173,7 @@ class Event extends Component {
                     <Row className="mb-2">
                         <Col />
                         {data ?
-                            (   <Link eventKey="ideas" to={{
+                            (   <Link to={{
                                     pathname: '/create-idea',
                                     state: {
                                         eventId: this.state.eventId
