@@ -56,41 +56,9 @@ class CreateEvent extends Component {
             .child(filename)
             .getDownloadURL()
             .then(url => {
-                this.setState({ imageURl: url })
-
+                this.setState({ imageURL: url });
+                console.log(this.state.imageURL);
             });
-//         var storage = Rirebase.storage().ref('images/stars.jpg');
-//         // Create a reference to the file we want to download
-//         var starsRef = storageRef.child('images/stars.jpg');
-//
-// // Get the download URL
-//         starsRef.getDownloadURL().then(function(url) {
-//             // Insert url into an <img> tag to "download"
-//         }).catch(function(error) {
-//
-//             // A full list of error codes is available at
-//             // https://firebase.google.com/docs/storage/web/handle-errors
-//             switch (error.code) {
-//                 case 'storage/object-not-found':
-//                     // File doesn't exist
-//                     break;
-//
-//                 case 'storage/unauthorized':
-//                     // User doesn't have permission to access the object
-//                     break;
-//
-//                 case 'storage/canceled':
-//                     // User canceled the upload
-//                     break;
-//
-//                 ...
-//
-//                 case 'storage/unknown':
-//                     // Unknown error occurred, inspect the server response
-//                     break;
-//             }
-//         });
-
     };
 
     handleSubmit(e) {
@@ -104,6 +72,7 @@ class CreateEvent extends Component {
             endDate: this.state.endDate,
             endTime: this.state.endTime,
             descrip: this.state.descrip,
+            imageURL: this.state.imageURL,
             attendees: 0
         };
         itemsRef.push(item);
@@ -117,7 +86,7 @@ class CreateEvent extends Component {
             descrip: ''
 
         });
-        this.props.history.push("/event")
+        this.props.history.push("/home");
     }
 
     render() {
@@ -163,12 +132,6 @@ class CreateEvent extends Component {
                                 width="400"
                             /> : <div/>}
                         {console.log(this.state.imageURL)}
-                        {/*<img*/}
-                        {/*    src={this.state.imageURL || "https://via.placeholder.com/400x300"}*/}
-                        {/*    alt="Uploaded Images"*/}
-                        {/*    height="300"*/}
-                        {/*    width="400"*/}
-                        {/*/>*/}
                     </Form.Group>
 
 

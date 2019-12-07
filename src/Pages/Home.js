@@ -114,7 +114,7 @@ class Home extends Component {
                             <ListGroup.Item >
                                 <Row>
                                     <Col xs={1}>
-                                        <Image src={HackBeanpot} thumbnail="true" alt="hackbeanpot" />
+                                        <Image src={event.text.imageURL || "https://via.placeholder.com/400x300"} thumbnail="true" alt="hackbeanpot" />
                                     </Col>
                                     <Col xs={11}>
                                         <h1>{event.text.eventName}</h1>
