@@ -32,7 +32,8 @@ class Attendees extends Component {
             endDate: this.props.location.state.endDate,
             endTime: this.props.location.state.endTime,
             descrip: this.props.location.state.descrip,
-            attendees: this.props.location.state.attendees
+            attendees: this.props.location.state.attendees,
+            imageURL: this.props.location.state.imageURL
         };
     }
 
@@ -60,7 +61,8 @@ class Attendees extends Component {
                                     endDate: this.state.endDate,
                                     endTime: this.state.endTime,
                                     descrip: this.state.descrip,
-                                    attendees: this.state.attendees
+                                    attendees: this.state.attendees,
+                                    imageURL: this.state.imageURL
                                 }}}>
                                 <Nav.Link>Event</Nav.Link>
                             </LinkContainer>
@@ -76,7 +78,8 @@ class Attendees extends Component {
                                     endDate: this.state.endDate,
                                     endTime: this.state.endTime,
                                     descrip: this.state.descrip,
-                                    attendees: this.state.attendees
+                                    attendees: this.state.attendees,
+                                    imageURL: this.state.imageURL
                                 }}}>
                                 <Nav.Link>Ideas</Nav.Link>
                             </LinkContainer>
@@ -92,7 +95,8 @@ class Attendees extends Component {
                                     endDate: this.state.endDate,
                                     endTime: this.state.endTime,
                                     descrip: this.state.descrip,
-                                    attendees: this.state.attendees
+                                    attendees: this.state.attendees,
+                                    imageURL: this.state.imageURL
                                 }}}>
                                 <Nav.Link>Attendees</Nav.Link>
                             </LinkContainer>

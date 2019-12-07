@@ -15,6 +15,7 @@ import Button from 'react-bootstrap/Button';
 import Firebase from "../firebase";
 import {Link} from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
+import Loader from "react-loader-spinner";
 
 
 
@@ -38,7 +39,8 @@ class Home extends Component {
     }
 
     render() {
-        return (
+        const { events } = this.state;
+        return events.length ?
             <React.Fragment>
                 <Container fluid="true">
                         <Row className="titlePadding">
@@ -108,7 +110,8 @@ class Home extends Component {
                                 endTime: event.text.endTime,
                                 descrip: event.text.descrip,
                                 attendees: event.text.attendees,
-                                eventId: event.id
+                                eventId: event.id,
+                                imageURL: event.text.imageURL
                             }
                         }}>
                             <ListGroup.Item >
@@ -118,7 +121,8 @@ class Home extends Component {
                                     </Col>
                                     <Col xs={11}>
                                         <h1>{event.text.eventName}</h1>
-                                        <p>{event.text.startDate}-{event.text.endDate}</p>
+                                        <p className="pdes">{event.text.location}</p>
+                                        <p className="pdes">{event.text.startDate} to {event.text.endDate}</p>
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
@@ -135,7 +139,15 @@ class Home extends Component {
                     </Button>
                 </div>
 
-            </React.Fragment>
+            </React.Fragment> : (
+                <div className="loader">
+                    <Loader
+                        type="Puff"
+                        color="#00BFFF"
+                        height={80}
+                        width={80}
+                    />
+                </div>
 
 
         );

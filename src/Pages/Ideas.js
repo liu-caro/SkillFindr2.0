@@ -32,7 +32,8 @@ class Ideas extends Component {
             endDate: this.props.location.state.endDate,
             endTime: this.props.location.state.endTime,
             descrip: this.props.location.state.descrip,
-            attendees: this.props.location.state.attendees
+            attendees: this.props.location.state.attendees,
+            imageURL: this.props.location.state.imageURL
         };
     }
 
@@ -46,8 +47,7 @@ class Ideas extends Component {
     }
 
     render() {
-        const { ideas } = this.state;
-        return ideas.length ?
+        return (
             <React.Fragment>
             <Container fluid="true">
                 <Row className="titlePadding">
@@ -71,7 +71,8 @@ class Ideas extends Component {
                                     endDate: this.state.endDate,
                                     endTime: this.state.endTime,
                                     descrip: this.state.descrip,
-                                    attendees: this.state.attendees
+                                    attendees: this.state.attendees,
+                                    imageURL: this.state.imageURL
                                 }}}>
                                 <Nav.Link>Event</Nav.Link>
                             </LinkContainer>
@@ -87,7 +88,8 @@ class Ideas extends Component {
                                     endDate: this.state.endDate,
                                     endTime: this.state.endTime,
                                     descrip: this.state.descrip,
-                                    attendees: this.state.attendees
+                                    attendees: this.state.attendees,
+                                    imageURL: this.state.imageURL
                                 }}}>
                                 <Nav.Link>Ideas</Nav.Link>
                             </LinkContainer>
@@ -103,7 +105,8 @@ class Ideas extends Component {
                                     endDate: this.state.endDate,
                                     endTime: this.state.endTime,
                                     descrip: this.state.descrip,
-                                    attendees: this.state.attendees
+                                    attendees: this.state.attendees,
+                                    imageURL: this.state.imageURL
                                 }}}>
                                 <Nav.Link>Attendees</Nav.Link>
                             </LinkContainer>
@@ -176,15 +179,8 @@ class Ideas extends Component {
                 </Link>
             </div>
 
-        </React.Fragment> : (
-                <div className="loader">
-                    <Loader
-                        type="Puff"
-                        color="#00BFFF"
-                        height={80}
-                        width={80}
-                    />
-                </div>
+        </React.Fragment>
+
         );
     }
 }

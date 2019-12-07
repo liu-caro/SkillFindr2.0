@@ -26,7 +26,8 @@ class Event extends Component {
             endTime: this.props.location.state.endTime,
             descrip: this.props.location.state.descrip,
             attendees: this.props.location.state.attendees,
-            eventId: this.props.location.state.eventId
+            eventId: this.props.location.state.eventId,
+            imageURL: this.props.location.state.imageURL
         };
 
     }
@@ -59,7 +60,8 @@ class Event extends Component {
                                         endDate: this.state.endDate,
                                         endTime: this.state.endTime,
                                         descrip: this.state.descrip,
-                                        attendees: this.state.attendees
+                                        attendees: this.state.attendees,
+                                        imageURL: this.state.imageURL
                                     }}}>
                                     <Nav.Link>Event</Nav.Link>
                                 </LinkContainer>
@@ -75,7 +77,8 @@ class Event extends Component {
                                         endDate: this.state.endDate,
                                         endTime: this.state.endTime,
                                         descrip: this.state.descrip,
-                                        attendees: this.state.attendees
+                                        attendees: this.state.attendees,
+                                        imageURL: this.state.imageURL
                                     }}}>
                                     <Nav.Link>Ideas</Nav.Link>
                                 </LinkContainer>
@@ -91,7 +94,8 @@ class Event extends Component {
                                         endDate: this.state.endDate,
                                         endTime: this.state.endTime,
                                         descrip: this.state.descrip,
-                                        attendees: this.state.attendees
+                                        attendees: this.state.attendees,
+                                        imageURL: this.state.imageURL
                                     }}}>
                                     <Nav.Link>Attendees</Nav.Link>
                                 </LinkContainer>
@@ -110,7 +114,7 @@ class Event extends Component {
 
                     <Row>
                         <Col />
-                        <img src={HackBeanpot} alt="HackBeanpot" />
+                        <img src={this.state.imageURL || "https://via.placeholder.com/400x300"} alt="event image" />
                         <Col />
                     </Row>
 
