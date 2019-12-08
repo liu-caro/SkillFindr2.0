@@ -44,7 +44,7 @@ class CreateProfile extends Component {
                     <Form.Row className="justify-content-center">
                         <Form.Group controlId="formBasicSkills">
                             <Form.Label column="true">Skills</Form.Label>
-                            <Form.Control type="password" />
+                            <Form.Control type="text" as="textarea/>
                         </Form.Group>
                     </Form.Row>
 
